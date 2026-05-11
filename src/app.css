@@ -1,0 +1,116 @@
+.dropdownColor {
+    background-color: #34c38f;
+    border-color: #34c38f;
+}
+
+.d-block {
+    display: block;
+}
+
+.content_Fit{
+        padding: calc(80px + 1.25rem) .625rem 160px;
+}
+
+.ml-1{
+    margin-left:10px
+}
+
+.mright-1{
+    margin-right:10px
+}
+.h-4{
+    height: 45px !important;
+}
+
+.pagination{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.color-red{
+    color:red;
+    font-weight: 600
+}
+
+.color-green{
+    color:green;
+    font-weight: 600
+}
+.title-color{
+      color: #34c38f;
+}
+.cursor-pointer{
+    cursor: pointer !important;
+}
+.button-color{
+    background-color: #34c38f;
+    color: #fff;
+    border: none;
+}
+
+.button-color:hover{
+    background-color: #2ba876 !important;
+}
+
+.modal-dialog {
+    max-width: 550px
+}
+.error_msg {font-size: 12px; text-align: center; color: #ed193b;}
+.page-content .react-tel-input .form-control {width: 100%;}
+.descriptionBox {border: 1px solid #e2e2e2; padding: 4px 6px; min-height: 70px; color: #74788d;background-color: #f5f6f8; border-radius: 6px;}
+.activeBadge {font-weight: 600; color: rgb(47, 104, 70); font-size: 13px; line-height: 1.43; background: rgb(234, 251, 231); padding: 4px 8px; border-radius: 4px;}
+.inActiveBadge {font-weight: 600; color: rgb(237 25 59); font-size: 13px; line-height: 1.43; background: rgb(237, 25, 59, 0.06); padding: 4px 8px; border-radius: 4px;}
+.clickableLabel {text-transform: capitalize; cursor: pointer;}
+.clickableLabel:hover {text-decoration: underline; color: #34c38f}
+
+.react-tagsinput-input {
+    width: 100% !important;
+}
+
+body.modal-open {
+    padding-right: 0 !important;
+}
+
+/* Force green colors for buttons and active states - overrides compiled CSS */
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.show > .btn-primary.dropdown-toggle {
+  background-color: #34c38f !important;
+  border-color: #34c38f !important;
+  color: #fff !important;
+}
+
+.btn-primary:hover {
+  background-color: #2ba876 !important;
+  border-color: #2ba876 !important;
+}
+
+/* Sidebar active menu items */
+#sidebar-menu .mm-active > a,
+#sidebar-menu .mm-active > a i {
+  color: #34c38f !important;
+}
+
+#sidebar-menu .mm-active > a {
+  background-color: #e8f8f3 !important;
+}
+
+/* Links */
+a,
+.link-primary {
+  color: #34c38f !important;
+}
+
+a:hover {
+  color: #2ba876 !important;
+}
+
+/* Dropdown active */
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: #34c38f !important;
+  color: #fff !important;
+}

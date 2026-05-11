@@ -1,0 +1,36 @@
+.property_details {
+    background-color: white;
+    padding: 37px;
+  }
+  
+  .property_label {
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  
+  .save-btn {
+    height: 40px;
+  }
+  
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+  
+  .description_box {
+    margin-left: 10px;
+    width: 98%;
+  }
+  
+  .react-datepicker-popper{
+    z-index: 2 !important;
+  }
+
+  .property_lease {
+    margin-right: 25px;
+  }

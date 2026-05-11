@@ -1,0 +1,28 @@
+.promo_label {
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.promo_tier{
+  grid-gap: 10px;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.create_promo_btn{
+  margin-top: 30px;
+  width: 100%;
+}
+
+.promo_state{
+  margin-right: 10px;
+}
+
+.description_box {
+  margin-left: 10px;
+  width: 97%;
+}
+
+.react-datepicker-popper{
+  z-index: 2 !important;
+}

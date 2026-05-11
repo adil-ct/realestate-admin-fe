@@ -1,0 +1,14 @@
+.financials-nav-box{
+    border-bottom: 1px solid black;
+    padding-bottom: 8px;
+}
+.uwHeading {
+    background: #535050;
+    color: #fff;
+    margin-bottom: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}

@@ -1,0 +1,34 @@
+.view-user-list>div>label{
+    font-size: 17px;
+}
+.view-user-list>div.span{
+    font-size: 17px;
+}
+.view-user-list>div{
+    margin: 25px 0px;
+}
+
+.view-user-title{
+    margin-left: 10px;
+}
+
+.view-user-copy{
+   font-size: 20px;
+}
+.balcklist-icon{
+    font-size: 24px;
+}
+.color-green {
+    color: green;
+}
+.view-user-table{
+    margin-top: -90px;
+}
+.view-user-block{
+    word-break: break-all;
+}
+.flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

@@ -1,0 +1,36 @@
+.add-card-modal-body{
+    padding: 20px;   
+}
+.add-card-modal-header-class{
+    display: flex;
+    justify-content: flex-end;
+}
+.add-card-modal-title{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+}
+.add-card-modal-bottom-btn-container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.add-card-modal-bottom-btn{
+    border: none;
+    width: 45%;
+    border-radius: 50px;
+    height: 40px;
+    font-weight: bold;
+}
+.add-card-electric-blue{
+    background: #58F2F0;
+}
+
+.show-bank-detail{
+    display: flex;
+    justify-content: space-between;
+}
+.bill-details-subtitle{
+    margin: 20px 0px;
+    border-bottom: 2px solid lightgray;
+}

@@ -1,0 +1,66 @@
+.modal-colse-btn-black{border: none; background: black; color: white; border-radius: 50%; box-sizing: border-box; padding: 0; height: 20px; width: 20px; line-height: 12px;}
+.modal-header-class{
+    display: flex;
+    justify-content: end;
+}
+.add-bank-modal-title{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+}
+.add-bank-select-method{
+    color: #51566B;
+    font-weight: 400;
+}
+.add-bank-radio-container{
+    display: flex;
+    margin-top: 10px;
+    font-weight: bold;
+}
+.add-deposit-radio-container{
+    margin-top: 10px;
+    font-weight: bold;
+    
+}
+.add-bank-modal-body{
+    padding: 20px;
+}
+.add-bank-modal-bottom-btn-container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.add-bank-modal-bottom-btn{
+    border: none;
+    width: 45%;
+    border-radius: 50px;
+    height: 40px;
+    font-weight: bold;
+}
+.add-bank-electric-blue{
+    background: #58F2F0;
+}
+.add-bank-modal-form-label-container{
+    margin: 10px 0px;
+}
+.plaid-input-div-container{
+    position: absolute;
+    right: 1px;
+    top: 31px;
+}
+.plain-input-btn{border: none; background-color: #fff; height: 36px; border-radius: 5px; padding: 0 10px;}
+.fetch-btn-container{
+    position: relative;
+}
+
+.deposit__field__usd {
+    width: 100%;
+    padding: 0.4rem 0.7rem;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 0.3;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+  }

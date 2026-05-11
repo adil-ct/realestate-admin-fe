@@ -1,0 +1,82 @@
+.property-cards{
+    height:35vh;
+}
+
+.sidebar-card{
+  min-height: 630px;
+}
+
+.rental-manager-progress-bar-container {
+    width: 65%;
+    display: flex;
+    justify-content: space-between;
+    border-top: 10px solid #024a92;
+    padding-top: 15px;
+    margin: 30px auto 50px;
+  }
+  
+  .active-step {
+    background-color: #024a92 !important;
+  }
+  
+  .rental-manager-progress-bar-container div {
+    background-color: #fff;
+    font-weight: bold;
+    color: #7ea5cc;
+    border: 2px solid #024a92;
+    margin-top: -45px;
+    width: 50px;
+    height: 50px;
+    line-height: 45px;
+    text-align: center;
+    border-radius: 50%;
+    /* z-index: 2; */
+  }
+  .DraftEditor-editorContainer { 
+    z-index: 0!important;
+}
+
+  .detail-card{
+    min-height: 630px;
+  }
+
+  .min-height-input {
+    min-height: 22vh !important;
+  }
+
+  .icon-container {
+    width: 100vw;
+    position: fixed;
+    z-index: 20000000000;
+    top: 10%;
+    right: 0;
+    height: 100vh;
+}
+
+.next-icon {
+  position: absolute;
+  right: 26%;
+  top: 40%;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.prev-icon {
+  position: absolute;
+  left: 26%;
+  top: 40%;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.react-datepicker-wrapper{
+  width: 100%;
+}

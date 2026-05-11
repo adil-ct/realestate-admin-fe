@@ -1,0 +1,136 @@
+.wallet-card {
+    padding: 0rem 0.5rem;
+    background-color: #fafafa;
+    display: flex;
+  }
+  
+  .wallet-card:first-child {
+    padding-left: 0rem;
+  }
+  
+  .wallet-card:last-child {
+    padding-right: 0rem;
+  }
+  
+ 
+  
+  .border-wallet {
+    border: 1px solid #dce1e7;
+    border-radius: 8px;
+  }
+
+  .table-background{
+    border-radius: 5px;
+    background: #ffffff;
+    margin-top: 25px;
+  }
+  
+  .euro {
+    background-color: #ffffff;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border: 1px solid #4b5e6e;
+    margin-bottom: 8px;
+  }
+  .euro-fiat{
+    margin-left: 28px;
+  }
+  
+  .evx-img {
+    height: 92px;
+  }
+  
+  .border-wallet .header {
+    color: #87949f;
+  }
+  
+  .dflex {
+    display: flex;
+  }
+  .fiat-wallet-button {
+    display: grid;
+    justify-content: end;
+  }
+  .block-wallet-button {
+    display: grid;
+    justify-content: end;
+  }
+  .block-chain-wallet {
+    padding: 0 48px;
+  }
+  .block-chain-card {
+    display: flex;
+  }
+  .header-wallet {
+    font-size: 14px;
+  }
+  .sub-header-wallet {
+    font-size: 20px;
+  }
+  
+  .fiat-header .sub-header-wallet {
+    font-size: 20px;
+  }
+  @media (max-width: 992px) {
+    .dflex {
+      display: block;
+    }
+    .dflexSmall {
+      display: flex;
+    }
+
+    @media (max-width: 768px) {
+      .wallet-card {
+        padding: 0rem;
+      }
+      
+    }
+    
+    @media (max-width: 600px) {
+      .euro-mobile {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -15px;
+        margin-top: 20px;
+      }
+      .euro-text {
+        margin-top: 20px;
+        margin-left: 10px;
+      }
+      .block-wallet-button {
+        display: flex;
+      }
+      .block-chain-wallet {
+        padding: 0;
+      }
+      .block-chain-card {
+        display: flex;
+        justify-content: space-around;
+      }
+      .evx-img {
+        height: 65px;
+      }
+      .header-wallet {
+        font-size: 12px;
+      }
+      .sub-header-wallet {
+        font-size: 14px;
+      }
+      .wallet-card {
+        display: block;
+      }
+    }
+  }
+  
+  .balanceBox {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 20px;
+  }

@@ -1,0 +1,66 @@
+// Force green colors for all primary buttons and active states
+// This overrides Bootstrap's compiled CSS until SCSS is rebuilt
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled).active,
+.show > .btn-primary.dropdown-toggle {
+  background-color: #34c38f !important;
+  border-color: #34c38f !important;
+  color: #fff !important;
+}
+
+.btn-primary:hover {
+  background-color: #2ba876 !important;
+  border-color: #2ba876 !important;
+}
+
+.btn-primary:focus,
+.btn-primary.focus {
+  box-shadow: 0 0 0 0.2rem rgba(52, 195, 143, 0.5) !important;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(52, 195, 143, 0.5) !important;
+}
+
+// Override sidebar active menu item colors
+#sidebar-menu .mm-active > a,
+#sidebar-menu .mm-active > a i {
+  color: #34c38f !important;
+}
+
+#sidebar-menu .mm-active > a {
+  background-color: #e8f8f3 !important;
+}
+
+// Override any blue link colors
+a,
+.link-primary {
+  color: #34c38f !important;
+}
+
+a:hover,
+.link-primary:hover {
+  color: #2ba876 !important;
+}
+
+// Override dropdown active states
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: #34c38f !important;
+  color: #fff !important;
+}
+
+// Override nav pills active
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  background-color: #34c38f !important;
+  color: #fff !important;
+}

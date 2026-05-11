@@ -1,0 +1,90 @@
+.spinner-container{
+  position: absolute;
+  left: 45%;
+  top: 40%;
+  transform: translate(-50%,-50%);
+  z-index: 1000000;
+}
+
+.spinner-card {
+  height: 50px;
+  position: relative;
+}
+.spinner-body {
+  position: absolute;
+}
+.spin-content{
+  height: 100px !important;
+  width: 100px !important;
+  color: #34c38f;
+}
+.mogulIn{
+  /* Logo removed - this class is no longer used */
+  display: none;
+}
+.loader,
+.loader:before,
+.loader:after {
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation: load7 1.8s infinite ease-in-out;
+  animation: load7 1.8s infinite ease-in-out;
+}
+.loader {
+  color: #34c38f;
+  font-size: 10px;
+  z-index: 5000;
+  margin: 490px auto;
+  position: relative;
+  text-indent: -9999em;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+  @media (min-width: 300px) {
+    margin: 230px auto;
+  }
+}
+.without-margin {
+  margin: auto auto;
+  margin-bottom: 50px;
+}
+.loader:before,
+.loader:after {
+  content: '';
+  position: absolute;
+  top: 0;
+}
+.loader:before {
+  left: -3.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+.loader:after {
+  left: 3.5em;
+}
+
+@-webkit-keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}
+@keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}

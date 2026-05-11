@@ -1,0 +1,45 @@
+.pagination {
+  list-style: none;
+  float: right;
+  margin: 20px 0;
+  zoom: 1;
+  cursor: pointer;
+}
+.pagination .page {
+  display: inline-block;
+  padding: 4px 15px;
+  border: 1px solid #efefef;
+  color: #34c38f;
+  cursor: pointer;
+}
+.page.active {
+  background-color: #34c38f;
+  color: #fff;
+}
+.page.active:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.arrow {
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  color: #fff;
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+@media (max-width: 600px) {
+  .pagination {
+    zoom: 0.7
+  }
+}

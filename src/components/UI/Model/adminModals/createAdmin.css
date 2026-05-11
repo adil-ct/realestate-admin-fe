@@ -1,0 +1,15 @@
+.create_btn {
+  margin-top: 35px;
+  float: right;
+}
+
+.form_label{
+  margin-bottom: 0.5rem;
+}
+
+
+.custom-phone-input .arrow{
+  padding: 1px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+}

@@ -1,0 +1,98 @@
+.filterDD {width: 200px; margin-left: 10px;}
+.dflex {display: flex;}
+.m0 {margin: 0}
+.ml15 {margin-left: 15px;}
+.comingsoon-card {
+    /* margin-top: 107px; */
+    position: absolute;
+    /* align-items: center; */
+    /* vertical-align: baseline; */
+    height: 115px;
+    background: white;
+    top: 50%;
+    width: 450px;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    text-align: center;
+    border-radius: 10px;
+    align-items: center;
+    font-size: 35px;
+    line-height: 115px;
+    /* box-shadow: white 1px 2px; */
+}
+
+.investor-background{
+    background: white;
+    border-radius: 5px;
+    min-height: 200px;
+}
+.walletBalanceBox {
+    display: flex; width: 335px; justify-content: space-between;
+}
+.investor-maincontainer{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.commingsoon-container{
+    position: relative;
+    margin: auto;
+    height: 100vh;
+}
+
+.card-body-card{
+    display:flex;
+    justify-content: space-evenly;
+}
+
+.property-management-card-details{
+    display: flex;
+    flex-direction: column;
+}
+.property-management-card{
+    border-radius:10px;
+    display:flex;
+    justify-content: space-around;
+    padding: 10px;
+    align-items: center;
+}
+.button-header{
+    width: 100%;
+    max-width: 400px;
+    height: 40px;
+}
+.vote-card{
+    width: 100%;
+    max-width: 500px;
+}
+.summary{
+    width: 100%;
+    margin-right: 10px;
+}
+
+.summary,.description p{
+   text-align: justify;
+}
+.proposal-detail {
+    font-size: 17px;
+    font-weight: 500;
+}
+.progress-vote{
+    height: 15px;
+    /* margin: 10px 0px; */
+}
+.vote-button{
+    max-width: 150px;
+}
+.breadcrumb_btn {
+    display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 20px;
+}
+.headerFilterBox {width: 100%; justify-content: space-between; display: flex; align-items: center; margin: 10px 0}
+.portfolioNav {width: 625px; margin-left: 15px;}
+.react-datepicker-wrapper input[type="text"] {border: 1px solid rgb(206,212,218); padding: 8px 15px; color: #495057; border-radius: 5px; width: 250px;}
+.noContentFound {background: #efefef; padding: 10px; border: 1px solid #88888863; text-align: center; font-size: 18px; border-radius: 5px;}
+.attachments {margin-top: 20px; clear: both; padding-left: 10px;}
+.attachments img, .attachments video {border-radius: 8px; margin: 8px; display: block;}
+.attachments a {display: block; margin: 8px 0;}
+.pointer {cursor: pointer;}
+.link_btn { border: none; margin: 5px; background: transparent; text-decoration: underline; cursor: pointer;}

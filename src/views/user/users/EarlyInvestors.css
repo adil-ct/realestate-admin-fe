@@ -1,0 +1,49 @@
+.comingsoon-card {
+    /* margin-top: 107px; */
+    position: absolute;
+    /* align-items: center; */
+    /* vertical-align: baseline; */
+    height: 115px;
+    background: white;
+    top: 50%;
+    width: 450px;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    text-align: center;
+    border-radius: 10px;
+    align-items: center;
+    font-size: 35px;
+    line-height: 115px;
+    /* box-shadow: white 1px 2px; */
+}
+.search-box-header{
+    margin-right: 15px;
+}
+.commingsoon-container{
+    position: relative;
+    margin: auto;
+    height: 100vh;
+}
+
+
+@media (min-width: 768px) and (max-width: 1023px){
+    .early-invesrtors-header{
+        display: block !important;
+    }
+    .header-switch{
+        margin-left: auto !important;
+    }
+    .rigistor-column{
+    justify-content:space-between
+    }
+
+    .send-password-header{
+        margin-top: 10px;
+        margin-left: 20px;
+    }
+    .search-box-header{
+        /* Property dosen't reflect is !important is removed */
+        margin-left: 70px !important;
+        margin-right: 0px;
+    }
+}

@@ -1,0 +1,14 @@
+.property-management-card{
+    /* border: 1px solid black; */
+    border-radius:10px;
+    /* width: 15vw;
+    height: 10vh; */
+    display:flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.property-management-card-details{
+    display: flex;
+    flex-direction: column;
+}

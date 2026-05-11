@@ -1,0 +1,21 @@
+.uncheckedicon{
+     display: 'flex';
+      justify-content: 'center';
+      align-items: 'center';
+      height: '100%';
+      font-size: 8;
+      color: '#fff';
+      padding-right: 2
+}
+
+.checkedicon{
+    display: 'flex';
+     justify-content: 'center';
+     align-items: 'center';
+     height: '100%';
+     font-size: 8;
+     color: '#fff';
+     background-color: '#00FF00';
+     padding-right: 2;
+     border-radius: '50% 0 0 50%',
+}
