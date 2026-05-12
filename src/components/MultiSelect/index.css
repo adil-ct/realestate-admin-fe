@@ -1,7 +1,7 @@
 .multiSelectBox {margin: 0 10px; position: relative; width: 100%;}
 .multiSelectBox span {-webkit-user-select: none; -ms-user-select: none; user-select: none; }
 .multiSelectBox span input[type="checkbox"] {margin-right: 8px;}
-.selectLabel {background: #34c38f; color: #fff; height: 38px; border-radius: 4px; display: inline-block; min-width: 160px; padding: 8px 16px; cursor: pointer; position: relative; padding-right: 30px;}
+.selectLabel {background: #1A2B4A; color: #fff; height: 38px; border-radius: 4px; display: inline-block; min-width: 160px; padding: 8px 16px; cursor: pointer; position: relative; padding-right: 30px;}
 .selectLabel.fullWidth {width: 100%}
 .selectLabel.disabled { color: #74788d;background-color: #f5f6f8; cursor: default;}
 .listItemsBox { position: absolute; margin-top: 5px; right: auto; box-shadow: 0 2px 4px rgb(15 34 58 / 12%); z-index: 1; width: 180px; background: #fff;}

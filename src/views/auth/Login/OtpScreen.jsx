@@ -4,7 +4,7 @@ import { Row, Col, CardBody, Card, Container, Alert, Spinner } from 'reactstrap'
 import { useSelector, useDispatch } from 'react-redux';
 import OtpInput from "react18-input-otp";
 
-// Logo removed for whitelabeling
+import Logo from 'components/UI/Logo/Logo';
 import Confirm2faModal from 'components/UI/Model/authenticationmodals/confirm2faModal';
 import { otpVerify, clearAuth } from 'store/actions';
 import { authMain } from 'http/axios/axios_main';
@@ -70,7 +70,9 @@ const Otp = () => {
                 <div className="text-center mt-4">
                   <div className="d-block auth-logo">
                     {isLoading ? <Spinner className="spinner-logo-otp" /> : null}
-                    <div style={{fontSize: '24px', fontWeight: 'bold', color: '#34c38f', marginBottom: '10px'}}>Occurrence</div>
+                    <div className="auth-brand">
+                      <Logo height={40} tone="light" />
+                    </div>
                   </div>
                 </div>
 
@@ -81,7 +83,7 @@ const Otp = () => {
                     }}
                   >
                     <div className="text-center letters-space">
-                      <h5 className="login__header" style={{color: '#34c38f'}}>Verification Code</h5>
+                      <h5 className="login__header">Verification Code</h5>
                       <p className="text-muted mt-3">
                         {/* Enter the code generated in your Authenticator App */}
                         Please enter the code received on registered mobile number
@@ -98,11 +100,15 @@ const Otp = () => {
                           className="otpscreen"
                           inputStyle={{
                             padding: 10,
-                            marginRight: 20,
-                            border: '1px solid #828A9C',
-                            borderRadius: 3,
-                            width: 40,
-                            height: 50,
+                            marginRight: 12,
+                            border: '1px solid #E2E8F0',
+                            borderRadius: 10,
+                            width: 48,
+                            height: 56,
+                            fontSize: 18,
+                            fontWeight: 600,
+                            color: '#1A1A2E',
+                            background: '#ffffff',
                           }}
                         />
                       </div>
@@ -128,12 +134,12 @@ const Otp = () => {
                     </div>
                     <div className="mt-4 mb-4 text-center">
                       <button
-                        className="btn w-sm waves-effect waves-light w-75"
-                        style={{backgroundColor: '#34c38f', borderColor: '#34c38f', color: '#fff'}}
+                        className="btn btn-primary w-75"
                         type="button"
                         onClick={verifyOtp}
+                        disabled={isLoading}
                       >
-                        Authenticate
+                        {isLoading ? <Spinner size="sm" style={{ color: '#fff' }} /> : 'Authenticate'}
                       </button>
                     </div>
                     {errorMsg && (

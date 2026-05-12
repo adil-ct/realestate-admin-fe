@@ -202,7 +202,7 @@ const EditProperty = () => {
             ]}
           />
           {view && isSuperAdmin ? (
-            <Button className="button-color" onClick={handleView}>
+            <Button color="primary" className="button-color" onClick={handleView}>
               Edit Details <i className="fas fa-edit mx-2" role="button" />
             </Button>
           ) : (

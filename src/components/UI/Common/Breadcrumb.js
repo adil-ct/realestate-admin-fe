@@ -14,7 +14,7 @@ const Breadcrumb = ({ name, items, nopadding = false }) => (
               {items.length !== index + 1 ? (
                 <Link
                   to={item.state ? { pathname: item.link, state: item.state } : item.link}
-                  color="#34c38f"
+                  color="#1A2B4A"
                 >
                   <h4 className="mb-0 mx-3">{item.name || 'Admin'}</h4>
                 </Link>

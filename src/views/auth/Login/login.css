@@ -1,101 +1,159 @@
+/* Occurrence — auth screens */
+
 .login__hero {
-    margin-top: 120px !important;
-  }
-  
-  .login__header {
-    font-size: 20px;
-  }
-  
-  .faq__box {
-    margin: 0 10px;
-  }
-  
-  .form-control:focus {
-    color: #495057;
-    background-color: #fff;
-    border-color: #ff8880;
-    outline: 0;
-    box-shadow: none;
-  }
-  .otp-input {
-    text-align: center;
-    margin: 0 auto;
-    padding-bottom: 0;
-    display: flex;
-    justify-content: center;
-  }
-
-  .Reset__header{
-    color: #000000;
-    font-weight: 600;
-  }
-  .Reset_Para{
-    margin: 10px;
-  }
-  .color-green{
-    color: green;
-    font-weight: 600;
-  }
-  .reset__icon{
-    margin-top: -30px;
-      /* position: absolute;
-      right: 52px;
-      top: 26%; */
-  }
-
-  .password-eye{
-    position: absolute;
-    right: 16%;
-    top: 13px;
-}
-  
-  .otpscreen input{
-      width: 60px !important;
-      text-align: center;
-      padding: 10px;
-      margin-right: 20px;
-      border: 1px solid rgb(130, 138, 156);
-      border-radius: 3px;
-      height: 60px !important;
-  }
-
-  .otp-card{
-    min-height: 400px;
-  }
-
-  .container-otp{
-    max-width: 700px;
-  }
-
-  .letters-space{
-    letter-spacing: 1px;
-    font-size: 16px;
-    font-weight: 600;
-  }
-  .spinner-logo{
-    height: 75px;
-    width: 75px;
-    position: absolute;
-    left: 42%;
-    color: aqua;
-    top: 14px;
+  margin-top: 0 !important;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 16px;
+  background-color: #F8F7F4;
 }
 
-.spinner-logo-otp{
-  height: 80px;
-    width: 80px;
-    position: absolute;
-    left: 44%;
-    color: aqua;
-    top: 14px;
+.login__hero .card {
+  border-radius: 16px !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 8px 28px rgba(26, 43, 74, 0.08) !important;
+  background: #FFFFFF;
 }
 
-.form_label{
-  margin-bottom: 0.5rem;
+.auth-brand {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
 }
 
-.forget_password{
+.auth-subtitle {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: #6B7280;
+  margin-bottom: 12px;
+}
+
+.login__header {
+  font-size: 20px;
+  font-family: 'PP Fragment-Serif', 'Cormorant Garamond', Georgia, serif;
+  color: #1A1A2E;
+  font-weight: 700;
+}
+
+.faq__box { margin: 0 10px; }
+
+.form-control:focus {
+  color: #1A1A2E;
+  background-color: #fff;
+  border-color: #1A2B4A;
+  outline: 0;
+  box-shadow: none;
+}
+
+.otp-input {
+  text-align: center;
+  margin: 0 auto;
+  padding-bottom: 0;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.Reset__header {
+  color: #1A1A2E;
+  font-weight: 700;
+  font-family: 'PP Fragment-Serif', 'Cormorant Garamond', Georgia, serif;
+  letter-spacing: -0.01em;
+}
+.Reset_Para { margin: 10px; color: #6B7280; font-size: 13px; }
+
+.color-green {
+  color: #1A2B4A;
+  font-weight: 600;
+}
+
+.reset__icon {
+  margin-top: -30px;
+}
+
+.password-eye {
+  position: absolute;
+  right: 16%;
+  top: 13px;
+  color: #6B7280;
+  cursor: pointer;
+}
+
+.otpscreen input {
+  width: 56px !important;
+  text-align: center;
+  padding: 10px;
+  margin-right: 12px;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  height: 56px !important;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1A1A2E;
+  background: #ffffff;
+}
+
+.otpscreen input:focus {
+  border-color: #1A2B4A;
+  outline: none;
+  box-shadow: none;
+}
+
+.otp-card { min-height: 400px; }
+.container-otp { max-width: 700px; }
+
+.letters-space {
+  letter-spacing: 0.01em;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1A1A2E;
+}
+
+.spinner-logo {
+  height: 24px;
+  width: 24px;
+  color: #C9A84C;
+  margin: 0 auto 12px;
+  display: block;
+}
+
+.spinner-logo-otp {
+  height: 24px;
+  width: 24px;
+  color: #C9A84C;
+  margin: 0 auto 12px;
+  display: block;
+}
+
+.form_label {
+  margin-bottom: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #374151;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.forget_password {
   display: flex;
   width: 100%;
   justify-content: flex-end;
+  margin-bottom: 6px;
+}
+
+.forget_password .forgot-link {
+  color: #1A2B4A !important;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.forget_password .forgot-link:hover {
+  text-decoration: underline;
+  color: #2C4270 !important;
 }

@@ -17,8 +17,7 @@ function UserRouteLayout({ children }) {
       <header
         id="page-topbar"
         style={{
-          left: menuOpen ? '257px' : '90px',
-          transition: 'all ease-in-out 0.4s',
+          left: menuOpen ? '258px' : '90px',
         }}
       >
         <Header toggleMenu={toggleMenu} />

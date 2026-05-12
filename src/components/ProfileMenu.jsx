@@ -1,10 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import user4 from 'assets/images/avatar.jpg';
 import { Link } from 'react-router-dom';
 import RenderIf from './RenderIf';
 import DeleteModal from './UI/Model/DeleteModal';
+
+const getInitials = (name = '') => {
+  const parts = String(name).trim().split(/\s+/).filter(Boolean);
+  if (!parts.length) return 'A';
+  if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+  return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+};
 
 const ProfileMenu = () => {
   const { userData } = useSelector(state => state.user);
@@ -12,7 +18,15 @@ const ProfileMenu = () => {
   const [isSuperAdmin, setIsSuperAdmin] = useState(false);
   const [logout, setLogout] = useState(false);
   const [menu, setMenu] = useState(false);
-  const [username] = useState('Admin');
+
+  const username = useMemo(() => {
+    if (userData?.firstName || userData?.lastName) {
+      return `${userData.firstName || ''} ${userData.lastName || ''}`.trim();
+    }
+    return userData?.name || userData?.email || 'Admin';
+  }, [userData]);
+
+  const initials = useMemo(() => getInitials(username), [username]);
 
   const handleLogout = () => {
     localStorage.clear();
@@ -30,14 +44,15 @@ const ProfileMenu = () => {
       <Dropdown isOpen={menu} toggle={() => setMenu(!menu)} className="d-inline-block">
         <DropdownToggle
           className="btn header-item waves-effect"
+          style={{ padding: '0 8px', background: 'transparent', border: 'none', color: '#1A1A2E' }}
           id="page-header-user-dropdown"
           tag="button"
         >
-          <img className="rounded-circle header-profile-user" src={user4} alt="Header Avatar" />
-          <span className="d-none d-xl-inline-block ms-1 fw-medium font-size-15">
-            {username}
-          </span>{' '}
-          <i className="uil-angle-down d-none d-xl-inline-block font-size-15" />
+          <span className="header-profile-user" aria-label={username}>
+            {initials}
+          </span>
+          <span className="profile-username">{username}</span>
+          <i className="uil-angle-down ms-1" />
         </DropdownToggle>
         <DropdownMenu className="dropdown-menu-end">
         <Link to="/portfolio">

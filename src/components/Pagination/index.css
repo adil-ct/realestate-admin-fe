@@ -9,11 +9,11 @@
   display: inline-block;
   padding: 4px 15px;
   border: 1px solid #efefef;
-  color: #34c38f;
+  color: #1A2B4A;
   cursor: pointer;
 }
 .page.active {
-  background-color: #34c38f;
+  background-color: #1A2B4A;
   color: #fff;
 }
 .page.active:disabled {

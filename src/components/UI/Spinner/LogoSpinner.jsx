@@ -1,14 +1,14 @@
 import React from 'react';
 import { Spinner } from 'reactstrap';
-// Logo removed for whitelabeling
+import Logo from 'components/UI/Logo/Logo';
 import './Spinner.scss';
 
-const LogoLoader = ({backdrop}) => (
+const LogoLoader = ({ backdrop }) => (
   <>
     <div className="spinner-container">
       <div className="spinner-card">
-        {/* Logo removed - showing only spinner */}
-        <Spinner className="spinner-body spin-content" style={{ color: '#34c38f' }} />
+        <Logo height={44} tone="light" className="spinner-logo-mark" />
+        <Spinner className="spinner-body spin-content" style={{ color: '#C9A84C' }} />
       </div>
     </div>
     {backdrop && <div className="modal-backdrop show" />}

@@ -11,7 +11,7 @@ const ButtonLoader = ({ text, loading, onClick, success, className, type, disabl
     className={className || (success ? 'button-success-loader' : 'button-loader')}
   >
     {loading ? (
-      <Spinner size="sm" />
+      <Spinner size="sm" style={{ color: success ? '#1A2B4A' : '#ffffff' }} />
     ) : success ? (
       <span>
         <i className="fas fa-check success-icon" />

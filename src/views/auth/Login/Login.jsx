@@ -9,7 +9,7 @@ import * as Yup from 'yup';
 import * as actions from 'store/actions';
 import Scan2FAModal from 'components/UI/Model/authenticationmodals/scan2FAmodal';
 import Select2faModal from 'components/UI/Model/authenticationmodals/select2FA';
-// Logo removed for whitelabeling
+import Logo from 'components/UI/Logo/Logo';
 
 import ForgotPasswordModal from 'components/UI/Model/authenticationmodals/forgotPasswordModal';
 
@@ -69,7 +69,10 @@ const Login = () => {
                 <div className="text-center mt-4">
                   <div className="d-block auth-logo">
                     {isLoading && <Spinner className="spinner-logo" />}
-                    <div style={{fontSize: '32px', fontWeight: 'bold', color: '#34c38f', marginBottom: '10px'}}>Occurrence</div>
+                    <div className="auth-brand">
+                      <Logo height={44} tone="light" />
+                    </div>
+                    <div className="auth-subtitle">Admin Console</div>
                   </div>
                 </div>
 
@@ -104,9 +107,9 @@ const Login = () => {
                             </div>
 
                             <div className="mb-3">
-                              <div className="float-end forget_password" style={{ cursor: 'pointer', color: '#34c38f' }}>
-                                <a onClick={() => setForgot(true)}>Forgot password?</a>
-                              </div>    
+                              <div className="float-end forget_password">
+                                <a className="forgot-link" onClick={() => setForgot(true)}>Forgot password?</a>
+                              </div>
 
                               <div className="form_label">Password</div>
                               <div className='d-flex justify-content-end col-sm-12'>
@@ -131,13 +134,13 @@ const Login = () => {
                               />
                             </div>
 
-                            <div className="mt-3 text-end">
+                            <div className="mt-4 text-end">
                               <button
-                                className="btn w-sm waves-effect waves-light w-100 py-2"
-                                style={{backgroundColor: '#34c38f', borderColor: '#34c38f', color: '#fff'}}
+                                className="btn btn-primary w-100"
                                 type="submit"
+                                disabled={isLoading}
                               >
-                                Log In                          
+                                {isLoading ? <Spinner size="sm" style={{ color: '#fff' }} /> : 'Log In'}
                               </button>
                             </div>
                           </Form>

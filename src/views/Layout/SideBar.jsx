@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-// Logo removed for whitelabeling
+import Logo from 'components/UI/Logo/Logo';
 
 import { dataItems, dataItemsAdmin } from 'statics/sidebardata';
 import { GetUserProfile } from 'store/actions';
@@ -33,25 +33,19 @@ const Sidebar = ({ isMenuOpened }) => {
     <>
       <nav className={isMenuOpened ? '' : 'nav_show'}>
         <div className={`d-flex side_bar_top ${isMenuOpened ? '' : 'nav_show'}`}>
-          <div className="navbar-brand-box">
-            <NavLink to="/" className="logo logo-dark">
-              <span className="logo-sm">
-                <span style={{fontSize: '18px', fontWeight: 'bold', color: '#34c38f'}}>Occurrence</span>
-              </span>
-              <span className="logo-lg">
-                <span style={{fontSize: '24px', fontWeight: 'bold', color: '#34c38f'}}>Occurrence</span>
-              </span>
-            </NavLink>
-
-            <NavLink to="/" className="logo logo-light">
-              <span className="logo-sm">
-                <span style={{fontSize: '18px', fontWeight: 'bold', color: '#34c38f'}}>Occurrence</span>
-              </span>
-              <span className="logo-lg">
-                <span style={{fontSize: '24px', fontWeight: 'bold', color: '#34c38f'}}>Occurrence</span>
-              </span>
-            </NavLink>
-          </div>
+          <NavLink to="/" className="brand-link" aria-label="Occurrence">
+            {isMenuOpened ? (
+              <Logo height={40} tone="dark" />
+            ) : (
+              <img
+                src="/favicon.svg"
+                alt="Occurrence"
+                height={34}
+                width={34}
+                style={{ display: 'block' }}
+              />
+            )}
+          </NavLink>
         </div>
         <ul>
           {sidebarAccess?.map((item, index) => (

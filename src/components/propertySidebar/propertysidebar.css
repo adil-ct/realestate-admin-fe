@@ -35,8 +35,8 @@
     font-weight: 500;
 }
 .step-active{
-    color: #34c38f;
-    border-bottom: 2px solid #34c38f;
+    color: #C9A84C;
+    border-bottom: 2px solid #C9A84C;
     font-weight: 700;
 }
 .forward{
@@ -48,7 +48,7 @@
     height: 10px;
     width: 10px;
     border-radius: 50%;
-    background-color: #34c38f;
+    background-color: #C9A84C;
     position: absolute;
     right: 40%;
 }

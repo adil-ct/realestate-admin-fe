@@ -1,0 +1,33 @@
+<svg width="480" height="140" viewBox="0 0 480 140" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;600&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Abstract O mark: concentric arcs suggesting cycles/recurrence -->
+  <!-- Outer ring arc (270 degrees, open at top-right) -->
+  <circle cx="58" cy="70" r="42" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-dasharray="220 42" stroke-dashoffset="0" stroke-linecap="round"/>
+
+  <!-- Middle ring arc (opposite direction) -->
+  <circle cx="58" cy="70" r="28" fill="none" stroke="#C49A2A" stroke-width="4" stroke-dasharray="140 36" stroke-dashoffset="80" stroke-linecap="round"/>
+
+  <!-- Inner dot -->
+  <circle cx="58" cy="70" r="7" fill="#FFFFFF"/>
+
+  <!-- Small accent dot at arc terminus -->
+  <circle cx="91" cy="32" r="5" fill="#C49A2A"/>
+
+  <!-- Wordmark — vertically centred with the icon -->
+  <text
+    x="118" y="70"
+    dominant-baseline="central"
+    font-family="Cormorant Garamond, Georgia, serif"
+    font-size="38"
+    font-weight="600"
+    fill="#FFFFFF"
+    letter-spacing="2"
+    textLength="350"
+    lengthAdjust="spacingAndGlyphs"
+  >OCCURRENCE</text>
+</svg>

@@ -179,11 +179,11 @@ const ChangePassword = ({ close }) => {
 
                 <div className="mt-4 text-end">
                   <button
-                    className="btn w-sm waves-effect waves-light w-100 py-2"
-                    style={{backgroundColor: '#34c38f', borderColor: '#34c38f', color: '#fff'}}
+                    className="btn btn-primary w-100"
                     type="submit"
+                    disabled={isLoading}
                   >
-                    {isLoading ? <Spinner size="sm" /> : 'Change Password'}
+                    {isLoading ? <Spinner size="sm" style={{ color: '#fff' }} /> : 'Change Password'}
                   </button>
                 </div>
 

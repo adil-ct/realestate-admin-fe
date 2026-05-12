@@ -1,23 +1,56 @@
+/* Occurrence — primary action button used by ButtonLoader */
 .button-loader {
-    background: #45c7f1;
-    border: 1px solid lightblue;
-    border-radius: 30px;
-    width: 20%;
-    padding: 5px;
-    letter-spacing: 1px;
-    color: white;
+  background: #1A2B4A;
+  border: 1px solid #1A2B4A;
+  border-radius: 10px;
+  min-width: 140px;
+  padding: 10px 20px;
+  letter-spacing: 0.01em;
+  font-weight: 600;
+  font-size: 13px;
+  color: #ffffff;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.success-icon{
-    margin-right: 5px;
+.button-loader:hover:not(:disabled) {
+  background: #2C4270;
+  border-color: #2C4270;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(26, 43, 74, 0.22);
 }
 
-.button-success-loader{
-    background: transparent;
-    border: 1px solid lightblue;
-    border-radius: 30px;
-    width: 20%;
-    padding: 5px;
-    letter-spacing: 1px;
-    color: #45c7f1;
+.button-loader:disabled {
+  background: #E2E8F0;
+  border-color: #E2E8F0;
+  color: #94A3B8;
+  cursor: not-allowed;
+}
+
+.success-icon { margin-right: 6px; color: #5BC1A1; }
+
+.button-success-loader {
+  background: transparent;
+  border: 1px solid #CBD5E1;
+  border-radius: 10px;
+  min-width: 140px;
+  padding: 10px 20px;
+  letter-spacing: 0.01em;
+  font-weight: 600;
+  font-size: 13px;
+  color: #1A2B4A;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.button-success-loader:hover {
+  background: rgba(26, 43, 74, 0.04);
+  border-color: #1A2B4A;
 }

@@ -1,18 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { Row, Col, Container, Card, CardBody, Label } from 'reactstrap';
+import { Container } from 'reactstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import SweetAlert from 'react-bootstrap-sweetalert';
 import PhoneInput from 'react-phone-input-2';
-import { Field, Form, Formik } from 'formik';
 
 import ChangePassword from 'views/auth/Login/ChangePassword';
 import PhoneInputModal from 'components/PhoneInputModal';
 import Breadcrumb from 'components/UI/Common/Breadcrumb';
 import { GetUserProfile } from 'store/actions';
-import avatar from 'assets/images/avatar.jpg';
 import OtpModal from 'components/OtpModal';
 
 import 'react-phone-input-2/lib/style.css';
+import './profile.css';
+
+const getInitials = (name = '') => {
+  const parts = String(name).trim().split(/\s+/).filter(Boolean);
+  if (!parts.length) return 'A';
+  if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+  return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+};
 
 const MyProfile = () => {
   const dispatch = useDispatch();
@@ -34,7 +40,7 @@ const MyProfile = () => {
     setOtpModal(prev => !prev);
   };
 
-  const copyToCLipBoard = value => {
+  const copyToClipboard = value => {
     navigator.clipboard.writeText(value);
     setCopied(true);
     setTimeout(() => setCopied(false), 1200);
@@ -49,163 +55,132 @@ const MyProfile = () => {
     dispatch(GetUserProfile());
   };
 
+  const initials = getInitials(userData?.name || '');
+  const walletAddress = userData?.blockchainAddress || '';
+  const shortWallet = walletAddress
+    ? `${walletAddress.slice(0, 6)}…${walletAddress.slice(-4)}`
+    : null;
+
   return (
-    <>
-      <div className="page-content">
-        <Container fluid>
-          <Breadcrumb
-            title="UI Elements"
-            breadcrumbItem="Tabs & Accordions"
-            items={[{ name: 'Profile' }]}
-          />
-          <Card>
-            <CardBody className="w-75 m-auto">
-              <Row style={{ padding: '20px 0px' }}>
-                <Col sm="12" md={{ size: 8, offset: 2 }}>
-                  <div style={{ padding: '20px 80px' }}>
-                    <Formik>
-                      <Form>
-                        <div className="text-center">
-                          <img
-                            src={avatar}
-                            alt=""
-                            className="avatar-md rounded-circle img-thumbnail"
-                          />
-                          {userData?.blockchainAddress && (
-                            <div className="d-flex align-items-center justify-content-center py-2">
-                              <div>
-                                {userData?.blockchainAddress?.replace(
-                                  /.(?<=\w{7})\w(?=\w{6})/g,
-                                  '.',
-                                )}
-                              </div>
-                              {copied ? (
-                                <div className="color-green">
-                                  <i className="fas fa-check ms-3 me-1" />
-                                  Copied
-                                </div>
-                              ) : (
-                                <i
-                                  className="fas fa-clone mb-0 cursor-pointer ms-3"
-                                  onClick={() => copyToCLipBoard(userData?.blockchainAddress)}
-                                />
-                              )}
-                            </div>
-                          )}
-                        </div>
-                        <div className="mb-3">
-                          <Label
-                            for="horizontal-firstname-Input"
-                            className="col-sm-6 col-form-Label d-block"
-                          >
-                            Full Name
-                          </Label>
-                          <Field
-                            name="name"
-                            id="YourName"
-                            className="py-2 form-control"
-                            type="text"
-                            value={userData?.name}
-                            disabled
-                          />
-                        </div>
-                        <div className="mb-3">
-                          <Label
-                            for="horizontal-firstname-Input"
-                            className="col-sm-6 col-form-Label d-block"
-                          >
-                            Email
-                          </Label>
-                          <Field
-                            name="email"
-                            id="YourName"
-                            type="Email"
-                            className="py-2 form-control"
-                            value={userData?.email}
-                            disabled
-                          />
-                        </div>
-                        <div className="mb-3">
-                          <Label
-                            for="horizontal-firstname-Input"
-                            className="col-sm-6 col-form-Label"
-                          >
-                            Mobile Number
-                          </Label>
-                          <PhoneInput
-                            country="us"
-                            value={`${userData?.countryCode}${userData?.mobileNumber}`}
-                            name="mobileno"
-                            autoFormat={false}
-                            countryCodeEditable={false}
-                            disabled="true"
-                          />
-                        </div>
-                        <div className=" mt-5">
-                          <Col sm="12">
-                            <div className="d-flex flex-wrap justify-content-evenly">
-                              <div>
-                                <button
-                                  type="button"
-                                  onClick={handlePassword}
-                                  className="btn btn-primary waves-effect waves-light dropdownColor"
-                                  data-toggle="modal"
-                                  data-target="#myModal"
-                                >
-                                  Update Password
-                                </button>
-                              </div>
-                              <div>
-                                <button
-                                  type="button"
-                                  onClick={handlePhone}
-                                  className="btn btn-primary waves-effect waves-light dropdownColor"
-                                  data-toggle="modal"
-                                  data-target="#myModal"
-                                >
-                                  Update Phone Number
-                                </button>
-                                {passwordModal && <ChangePassword close={handlePassword} />}
-                                {phoneModal && (
-                                  <PhoneInputModal close={handlePhone} next={handleOtpModal} />
-                                )}
-                                {successAlert && (
-                                  <SweetAlert
-                                    title="Password updated successfully"
-                                    success
-                                    confirmBtnBsStyle="success"
-                                    onConfirm={() => setSuccessAlert(false)}                
-                                  />
-                                )}
-                                {successAlertOtp && (
-                                  <SweetAlert
-                                    title="Mobile number updated successfully"
-                                    success
-                                    confirmBtnBsStyle="success"
-                                    onConfirm={() => setSuccessAlertOtp(false)}
-                                  />
-                                )}
-                                {isOtpModal && (
-                                  <OtpModal
-                                    close={handleOtpModal}
-                                    data={updatedNumber}
-                                    next={mobileUpdatedCB}
-                                  />
-                                )}
-                              </div>
-                            </div>
-                          </Col>
-                        </div>
-                      </Form>
-                    </Formik>
-                  </div>
-                </Col>
-              </Row>
-            </CardBody>
-          </Card>
-        </Container>
-      </div>
-    </>
+    <div className="page-content">
+      <Container fluid>
+        <Breadcrumb items={[{ name: 'Profile' }]} />
+
+        <div className="profile-card">
+          {/* Header banner */}
+          <div className="profile-header">
+            <div className="profile-avatar">{initials}</div>
+            <div className="profile-header-info">
+              <h2 className="profile-name">{userData?.name || 'Admin'}</h2>
+              <span className="profile-role">Administrator</span>
+              {shortWallet && (
+                <div className="profile-wallet">
+                  <span title={walletAddress}>{shortWallet}</span>
+                  {copied ? (
+                    <span className="profile-copied"><i className="fas fa-check" /> Copied</span>
+                  ) : (
+                    <i
+                      className="fas fa-clone profile-copy-icon"
+                      title="Copy wallet address"
+                      onClick={() => copyToClipboard(walletAddress)}
+                    />
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Info fields */}
+          <div className="profile-body">
+            <div className="profile-fields">
+
+              <div className="profile-field">
+                <label className="profile-label">Full Name</label>
+                <div className="profile-input-wrap">
+                  <i className="fas fa-user profile-field-icon" />
+                  <input
+                    className="profile-input"
+                    type="text"
+                    value={userData?.name || ''}
+                    disabled
+                    readOnly
+                  />
+                </div>
+              </div>
+
+              <div className="profile-field">
+                <label className="profile-label">Email Address</label>
+                <div className="profile-input-wrap">
+                  <i className="fas fa-envelope profile-field-icon" />
+                  <input
+                    className="profile-input"
+                    type="email"
+                    value={userData?.email || ''}
+                    disabled
+                    readOnly
+                  />
+                </div>
+              </div>
+
+              <div className="profile-field">
+                <label className="profile-label">Mobile Number</label>
+                <PhoneInput
+                  country="us"
+                  value={`${userData?.countryCode || ''}${userData?.mobileNumber || ''}`}
+                  autoFormat={false}
+                  countryCodeEditable={false}
+                  disabled
+                  inputClass="profile-phone-input"
+                  containerClass="profile-phone-container"
+                />
+              </div>
+
+            </div>
+
+            {/* Action buttons */}
+            <div className="profile-actions">
+              <button
+                type="button"
+                className="profile-btn profile-btn-primary"
+                onClick={handlePassword}
+              >
+                <i className="fas fa-lock" />
+                Update Password
+              </button>
+              <button
+                type="button"
+                className="profile-btn profile-btn-outline"
+                onClick={handlePhone}
+              >
+                <i className="fas fa-mobile-alt" />
+                Update Phone Number
+              </button>
+            </div>
+          </div>
+        </div>
+      </Container>
+
+      {passwordModal && <ChangePassword close={handlePassword} />}
+      {phoneModal && <PhoneInputModal close={handlePhone} next={handleOtpModal} />}
+      {isOtpModal && <OtpModal close={handleOtpModal} data={updatedNumber} next={mobileUpdatedCB} />}
+
+      {successAlert && (
+        <SweetAlert
+          title="Password updated successfully"
+          success
+          confirmBtnBsStyle="success"
+          onConfirm={() => setSuccessAlert(false)}
+        />
+      )}
+      {successAlertOtp && (
+        <SweetAlert
+          title="Mobile number updated successfully"
+          success
+          confirmBtnBsStyle="success"
+          onConfirm={() => setSuccessAlertOtp(false)}
+        />
+      )}
+    </div>
   );
 };
 

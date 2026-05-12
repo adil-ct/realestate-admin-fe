@@ -208,7 +208,7 @@ const DraftProperties = () => {
                           <i className="mdi mdi-magnify search-icon" />
                         </div>
                       </div>
-                      {isSuperAdmin && <Button className="button-color ms-2" onClick={handleAddNew}>
+                      {isSuperAdmin && <Button color="primary" className="button-color ms-2" onClick={handleAddNew}>
                         Add Property
                       </Button>}
                       {/* <button className="ms-2 button-color" type="button">Add New</button> */}

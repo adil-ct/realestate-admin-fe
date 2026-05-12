@@ -1,34 +1,186 @@
-.view-user-list>div>label{
-    font-size: 17px;
-}
-.view-user-list>div.span{
-    font-size: 17px;
-}
-.view-user-list>div{
-    margin: 25px 0px;
+/* ── ViewUser page ───────────────────────────────────────────── */
+
+/* Profile card */
+.vu-profile-card {
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  overflow: hidden;
+  margin-bottom: 24px;
 }
 
-.view-user-title{
-    margin-left: 10px;
+.vu-profile-header {
+  background: linear-gradient(135deg, #111E35 0%, #1A2B4A 100%);
+  padding: 28px 32px;
+  position: relative;
 }
 
-.view-user-copy{
-   font-size: 20px;
+.vu-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #C9A84C 0%, #A8872F 100%);
+  color: #0B1F4E;
+  font-family: 'PP Fragment-Serif', 'Cormorant Garamond', Georgia, serif;
+  font-size: 28px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid rgba(255,255,255,0.15);
+  flex-shrink: 0;
 }
-.balcklist-icon{
-    font-size: 24px;
+
+.vu-name {
+  font-family: 'PP Fragment-Serif', 'Cormorant Garamond', Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 4px;
+  letter-spacing: -0.01em;
 }
-.color-green {
-    color: green;
+
+.vu-id {
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  font-family: 'PP Fragment-Sans', 'Inter', system-ui, sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
-.view-user-table{
-    margin-top: -90px;
+
+.vu-id-copy {
+  cursor: pointer;
+  color: #C9A84C;
+  font-size: 13px;
+  transition: color 0.15s;
 }
-.view-user-block{
-    word-break: break-all;
+.vu-id-copy:hover { color: #A8872F; }
+
+.vu-status-badge {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  display: flex;
+  gap: 8px;
 }
-.flexCenter {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+
+/* Info body */
+.vu-info-body {
+  padding: 40px 32px 32px;
+  background: #ffffff;
+}
+
+.vu-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.vu-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.vu-info-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94A3B8;
+  font-family: 'PP Fragment-Sans', 'Inter', system-ui, sans-serif;
+}
+
+.vu-info-value {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1A1A2E;
+  font-family: 'PP Fragment-Sans', 'Inter', system-ui, sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.vu-info-value i {
+  color: #C9A84C;
+  font-size: 13px;
+  width: 16px;
+}
+
+/* Section tables */
+.vu-section {
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.vu-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  border-bottom: 1px solid #E2E8F0;
+  background: #F8F7F4;
+}
+
+.vu-section-title {
+  font-family: 'PP Fragment-Serif', 'Cormorant Garamond', Georgia, serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #1A2B4A;
+  margin: 0;
+}
+
+.vu-section-body {
+  padding: 0;
+  background: #ffffff;
+}
+
+/* Blacklist / Whitelist button */
+.vu-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'PP Fragment-Sans', 'Inter', system-ui, sans-serif;
+  cursor: pointer;
+  border: none;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.vu-action-btn:active { transform: scale(0.98); }
+
+.vu-btn-blacklist {
+  background: #FEF2F2;
+  color: #DC2626;
+  border: 1px solid #FECACA;
+}
+.vu-btn-blacklist:hover {
+  background: #FEE2E2;
+  color: #B91C1C;
+}
+
+.vu-btn-whitelist {
+  background: #F0FDF4;
+  color: #16A34A;
+  border: 1px solid #BBF7D0;
+}
+.vu-btn-whitelist:hover {
+  background: #DCFCE7;
+  color: #15803D;
+}
+
+/* Copy success */
+.vu-copied {
+  color: #16A34A;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }

@@ -1,9 +1,9 @@
 
 
 .form-control:focus {
-  color: #495057;
+  color: #1A1A2E;
   background-color: #fff;
-  border-color: #34c38f;
+  border-color: #1A2B4A;
   outline: 0;
   box-shadow: none;
 }
@@ -42,10 +42,12 @@
     margin: 0.5rem 1.5rem;
   }
   .body-text {
-    padding: 0.7rem 1rem;
-    background-color: #e7f3fa;
+    padding: 12px 16px;
+    background-color: rgba(26, 43, 74, 0.04);
+    border: 1px solid rgba(26, 43, 74, 0.08);
     margin-top: 1rem;
-    border-radius: 5px;
+    border-radius: 12px;
+    color: #374151;
   }
   
   .modal-footer {
@@ -65,16 +67,18 @@
   .btn-continue,
   .btn-continue:hover {
     width: 100%;
-    background: #34c38f ;
-    border: 2px solid #34c38f;
-    color: #fff ;
-    box-shadow: none ;
-  }
-  .btn:first-child:hover{
-    background: #2ba876 ;
+    background: #1A2B4A;
+    border: 1px solid #1A2B4A;
     color: #fff;
-    border: 1px solid #34c38f;
-    box-shadow: none ;
+    box-shadow: none;
+    border-radius: 10px;
+    font-weight: 600;
+    min-height: 44px;
+  }
+  .btn-continue:hover {
+    background: #2C4270;
+    border-color: #2C4270;
+    box-shadow: 0 4px 14px rgba(26, 43, 74, 0.22);
   }
 
   .deposite-buttons{
@@ -110,7 +114,8 @@
   }
 
   .terms-linkcolor{
-    color: blue;
+    color: #1A2B4A;
+    text-decoration: underline;
   }
   
   // Wallet Deposit Confirm

@@ -1,22 +1,29 @@
 .spinner-container{
-  position: absolute;
-  left: 45%;
-  top: 40%;
-  transform: translate(-50%,-50%);
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(248, 247, 244, 0.85);
   z-index: 1000000;
 }
 
 .spinner-card {
-  height: 50px;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
 }
 .spinner-body {
-  position: absolute;
+  position: relative;
 }
+.spinner-logo-mark { display: block; }
 .spin-content{
-  height: 100px !important;
-  width: 100px !important;
-  color: #34c38f;
+  height: 56px !important;
+  width: 56px !important;
+  color: #C9A84C;
+  border-width: 3px;
 }
 .mogulIn{
   /* Logo removed - this class is no longer used */
@@ -34,7 +41,7 @@
   animation: load7 1.8s infinite ease-in-out;
 }
 .loader {
-  color: #34c38f;
+  color: #C9A84C;
   font-size: 10px;
   z-index: 5000;
   margin: 490px auto;

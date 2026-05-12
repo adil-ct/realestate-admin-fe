@@ -17,14 +17,20 @@ const PropertySideBar = ({ setCurrentTab, currentTab, tabs, data }) => {
         <div>Location</div>
         <div>{data.location}</div>
       </div>
-      {data?.blockchainAddress && <div className="property-meta">
-        <div>Blockchain address</div>
-        <div>
-          <a rel="noreferrer" href={`https://mumbai.polygonscan.com/address/${data?.blockchainAddress}`} target="_blank"> 
-            {`${data?.blockchainAddress?.slice(0, 4)}......${data?.blockchainAddress?.slice(-4)}`}
-          </a>
+      {data?.blockchainAddress && (
+        <div className="property-meta">
+          <div>Blockchain address</div>
+          <div>
+            <a
+              rel="noreferrer"
+              href={`https://amoy.polygonscan.com/address/${data?.blockchainAddress}`}
+              target="_blank"
+            >
+              {`${data?.blockchainAddress?.slice(0, 4)}......${data?.blockchainAddress?.slice(-4)}`}
+            </a>
+          </div>
         </div>
-      </div>}
+      )}
       <div className="step-list">
         {sideBarDataItems.map(item => (
           <div

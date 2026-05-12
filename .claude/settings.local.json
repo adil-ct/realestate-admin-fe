@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls \"d:/Candour/Realstate\" 2>/dev/null | head -30)",
+      "Read(//d/Candour/Realstate/**)",
+      "Bash(cp \"d:/Candour/Realstate/realestate-whitelabel-fe-user-main 1/realestate-whitelabel-fe-user-main/public/occurrence_logo.svg\" \"d:/Candour/Realstate/realestate-whitelabel-fe-admin-development/realestate-whitelabel-fe-admin-development/public/occurrence_logo.svg\")",
+      "Bash(cp \"d:/Candour/Realstate/realestate-whitelabel-fe-user-main 1/realestate-whitelabel-fe-user-main/public/occurrence_logo_dark.svg\" \"d:/Candour/Realstate/realestate-whitelabel-fe-admin-development/realestate-whitelabel-fe-admin-development/public/occurrence_logo_dark.svg\")",
+      "Bash(cp \"d:/Candour/Realstate/realestate-whitelabel-fe-user-main 1/realestate-whitelabel-fe-user-main/public/favicon.svg\" \"d:/Candour/Realstate/realestate-whitelabel-fe-admin-development/realestate-whitelabel-fe-admin-development/public/favicon.svg\")",
+      "Bash(npx sass *)",
+      "Bash(npm run *)"
+    ]
+  }
+}

@@ -25,11 +25,11 @@ const BarChart = () => {
     datasets: [
       {
         label: 'Sales Analytics',
-        backgroundColor: '#34c38f',
-        borderColor: '#34c38f',
+        backgroundColor: '#1A2B4A',
+        borderColor: '#1A2B4A',
         borderWidth: 1,
-        hoverBackgroundColor: '#34c38f',
-        hoverBorderColor: '#34c38f',
+        hoverBackgroundColor: '#1A2B4A',
+        hoverBorderColor: '#1A2B4A',
         data: [65, 59, 81, 45, 56, 80, 50, 20],
       },
     ],

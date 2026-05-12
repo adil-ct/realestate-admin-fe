@@ -1,9 +1,21 @@
 import { useSelector, useDispatch } from 'react-redux';
 import React, { useEffect, useState } from 'react';
-import { useParams } from "react-router-dom";
-import { Button, Card, CardBody, Col, Container, Row, NavItem, TabPane, TabContent, Nav, NavLink } from 'reactstrap';
-import DatePicker from "react-datepicker";
-import { useNavigate } from "react-router-dom";
+import { useParams } from 'react-router-dom';
+import {
+  Button,
+  Card,
+  CardBody,
+  Col,
+  Container,
+  Row,
+  NavItem,
+  TabPane,
+  TabContent,
+  Nav,
+  NavLink,
+} from 'reactstrap';
+import DatePicker from 'react-datepicker';
+import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 
 import Breadcrumb from 'components/BreadCrumb';
@@ -19,7 +31,7 @@ import SearchInput from 'components/SearchInput';
 import ActionCell from 'components/ActionButton';
 import avatar from 'assets/images/avatar.jpg';
 
-import "react-datepicker/dist/react-datepicker.css";
+import 'react-datepicker/dist/react-datepicker.css';
 import '../viewcommon.css';
 
 const AssetPortfolio = () => {
@@ -27,22 +39,25 @@ const AssetPortfolio = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
 
-  const [filter, setFilter] = useState({ page: 1, limit: 10, search: '', txnType: '', startDate: '', endDate: '' });
-  const [cfTxnModalData, setCfTxnModalData] = useState({show: false, data: {}});
+  const [filter, setFilter] = useState({
+    page: 1,
+    limit: 10,
+    search: '',
+    txnType: '',
+    startDate: '',
+    endDate: '',
+  });
+  const [cfTxnModalData, setCfTxnModalData] = useState({ show: false, data: {} });
   const [paginationConfig, setPaginationConfig] = useState({});
   const [dateRange, setDateRange] = useState([null, null]);
-  const [activeTab, setActiveTab] = useState("token");
+  const [activeTab, setActiveTab] = useState('token');
   const [currentPage, setCurrentPage] = useState(1);
   const [reports, setReports] = useState([]);
   const [count, setCount] = useState('');
   const [startDate, endDate] = dateRange;
 
-  const {
-    assetsSummery,
-    propertyTxns,
-    isLoading
-  } = useSelector(state => state.portfolio);
-  const { commonData } = useSelector((state) => ({
+  const { assetsSummery, propertyTxns, isLoading } = useSelector(state => state.portfolio);
+  const { commonData } = useSelector(state => ({
     commonData: state.common,
   }));
 
@@ -52,38 +67,51 @@ const AssetPortfolio = () => {
 
   const getRentTxnList = () => {
     const query = Object.keys(filter)
-      .filter(item => filter[item] !== undefined && filter[item] !== '' && filter[item] !== "all")
+      .filter(item => filter[item] !== undefined && filter[item] !== '' && filter[item] !== 'all')
       .map(item => `${item}=${filter[item]}`)
       .join('&');
 
-    dispatch(commonSaga({ endPoint: `/cashflow/rent-transaction/${id}?${query}`, type: "get", stateObj: "rentTxnsList" }));
-  }
+    dispatch(
+      commonSaga({
+        endPoint: `/cashflow/rent-transaction/${id}?${query}`,
+        type: 'get',
+        stateObj: 'rentTxnsList',
+      }),
+    );
+  };
 
   const getReserveTxnsList = () => {
     const query = Object.keys(filter)
-      .filter(item => filter[item] !== undefined && filter[item] !== '' && filter[item] !== "all")
+      .filter(item => filter[item] !== undefined && filter[item] !== '' && filter[item] !== 'all')
       .map(item => `${item}=${filter[item]}`)
       .join('&');
 
-    dispatch(commonSaga({ endPoint: `/marketplace/reserves-transactions/${id}?${query}`, type: "get", stateObj: "reserveTxnsList", baseEP: "MARKETPLACE" }));
-  }
+    dispatch(
+      commonSaga({
+        endPoint: `/marketplace/reserves-transactions/${id}?${query}`,
+        type: 'get',
+        stateObj: 'reserveTxnsList',
+        baseEP: 'MARKETPLACE',
+      }),
+    );
+  };
 
   useEffect(() => {
-    if (activeTab === "rent") {
+    if (activeTab === 'rent') {
       getRentTxnList();
-    } else if(activeTab === "property") {
+    } else if (activeTab === 'property') {
       getReserveTxnsList();
     }
   }, [activeTab]);
 
   const getList = () => {
     const query = Object.keys(filter)
-      .filter(item => filter[item] !== undefined && filter[item] !== '' && filter[item] !== "all")
+      .filter(item => filter[item] !== undefined && filter[item] !== '' && filter[item] !== 'all')
       .map(item => `${item}=${filter[item]}`)
       .join('&');
 
     dispatch(getPropertyTxns({ id: `${id}?${query}` }));
-  }
+  };
 
   const handleSearch = val => {
     setFilter(prev => ({ ...prev, search: val, page: 1 }));
@@ -91,16 +119,20 @@ const AssetPortfolio = () => {
 
   useEffect(() => {
     if (dateRange[0] && dateRange[1]) {
-      setFilter(prev => ({ ...prev, startDate: new Date(dateRange[0]).toISOString(), endDate: new Date(dateRange[1]).toISOString() }));
+      setFilter(prev => ({
+        ...prev,
+        startDate: new Date(dateRange[0]).toISOString(),
+        endDate: new Date(dateRange[1]).toISOString(),
+      }));
     } else {
       setFilter(prev => ({ ...prev, startDate: '', endDate: '' }));
     }
   }, [dateRange]);
 
   useEffect(() => {
-    if (activeTab === "rent") {
+    if (activeTab === 'rent') {
       getRentTxnList();
-    } else if(activeTab === "property") {
+    } else if (activeTab === 'property') {
       getReserveTxnsList();
     } else {
       getList();
@@ -144,15 +176,24 @@ const AssetPortfolio = () => {
     if (propertyTxns?.items?.length) {
       propertyTxns?.items?.forEach(ele => {
         const obj = ele;
-        const txnHash = obj?.transactionHash && typeof (obj?.transactionHash) === "string" && `${obj?.transactionHash?.substr(0, 6)}......
+        const txnHash =
+          obj?.transactionHash &&
+          typeof obj?.transactionHash === 'string' &&
+          `${obj?.transactionHash?.substr(0, 6)}......
         ${obj?.transactionHash?.substr(obj?.transactionHash?.length - 4, obj?.transactionHash?.length)}`;
 
         obj.createdAt = moment(new Date(obj?.createdAt)).format('lll');
-        obj.transactionHash = NavigationLabel({ title: txnHash, link: `${process.env.REACT_APP_POLYGON_URL}${ele?.transactionHash}`, external: true });
+        obj.transactionHash = NavigationLabel({
+          title: txnHash,
+          link: `${process.env.REACT_APP_POLYGON_URL}${ele?.transactionHash}`,
+          external: true,
+        });
         const priceTemp = Number(obj?.tokens) * Number(obj?.price);
         obj.alterPrice = `$${Number(priceTemp)}`;
 
-        obj.tokens = `${obj?.tokens?.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")} ($${Number(obj?.price).toFixed(2)})` || "-";
+        obj.tokens =
+          `${obj?.tokens?.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} ($${Number(obj?.price).toFixed(2)})` ||
+          '-';
       });
 
       const paginationConfigTemp = {
@@ -167,9 +208,9 @@ const AssetPortfolio = () => {
     }
   }, [propertyTxns]);
 
-  const rentTxnDeatils = (item) => {
-    setCfTxnModalData({show: true, data: item});
-  }
+  const rentTxnDeatils = item => {
+    setCfTxnModalData({ show: true, data: item });
+  };
 
   useEffect(() => {
     if (commonData?.rentTxnsList?.dataObj?.data) {
@@ -195,7 +236,10 @@ const AssetPortfolio = () => {
     if (commonData?.reserveTxnsList?.dataObj) {
       commonData?.reserveTxnsList?.dataObj?.forEach(ele => {
         const obj = ele;
-        obj.price = `${Number(obj?.amount)?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}` || "-";
+        obj.price =
+          `${Number(obj?.amount)
+            ?.toFixed(2)
+            .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}` || '-';
         obj.date = moment(new Date(obj?.updatedAt)).format('lll');
       });
 
@@ -214,18 +258,21 @@ const AssetPortfolio = () => {
   const viewProposals = () => navigate(`/property-proposals/${id}`);
 
   const viewProperties = () => {
-    window.open(`https://dev-mvp-investor-react.investwithmogul.com/property-profile/${id}`, '_blank');
-  }
+    window.open(
+      `https://dev-mvp-investor-react.investwithmogul.com/property-profile/${id}`,
+      '_blank',
+    );
+  };
 
   const handleTxnType = val => {
     setFilter(prev => ({ ...prev, txnType: val }));
-  }
+  };
 
-  const toggleTab = (flag) => {
+  const toggleTab = flag => {
     if (activeTab !== flag) {
       setActiveTab(flag);
     }
-  }
+  };
 
   return (
     <div className="page-content">
@@ -237,24 +284,40 @@ const AssetPortfolio = () => {
           <CardBody className="d-flex justify-content-between align-items-center">
             <div className="d-flex align-items-center">
               <div>
-                <img src={assetsSummery?.property?.mainImage?.url || avatar} alt="" className="avatar-md rounded-circle img-thumbnail me-3" />
+                <img
+                  src={assetsSummery?.property?.mainImage?.url || avatar}
+                  alt=""
+                  className="avatar-md rounded-circle img-thumbnail me-3"
+                />
               </div>
               <div>
                 <div>
                   <h5>{assetsSummery?.property?.title}</h5>
-                  <i>{assetsSummery?.property?.city}, {assetsSummery?.property?.state}</i>
+                  <i>
+                    {assetsSummery?.property?.city}, {assetsSummery?.property?.state}
+                  </i>
                   <div>
-                    <span>Blockchain address :
-                      <a
-                        rel="noreferrer" href={`https://mumbai.polygonscan.com/tx/${assetsSummery?.tokenContractAddress}`}
-                        target="_blank"> {assetsSummery?.tokenContractAddress}
-                      </a>
-                    </span>
-                    <span> | Token Id :
+                    <span>
+                      Blockchain address :
                       <a
                         rel="noreferrer"
-                        href={`https://mumbai.polygonscan.com/token/${assetsSummery?.tokenContractAddress}?a=${assetsSummery?.property?.tokenId}`}
-                        target="_blank"> {assetsSummery?.property?.tokenId}
+                        href={`https://amoy.polygonscan.com/tx/${assetsSummery?.tokenContractAddress}`}
+                        target="_blank"
+                      >
+                        {' '}
+                        {assetsSummery?.tokenContractAddress}
+                      </a>
+                    </span>
+                    <span>
+                      {' '}
+                      | Token Id :
+                      <a
+                        rel="noreferrer"
+                        href={`https://amoy.polygonscan.com/token/${assetsSummery?.tokenContractAddress}?a=${assetsSummery?.property?.tokenId}`}
+                        target="_blank"
+                      >
+                        {' '}
+                        {assetsSummery?.property?.tokenId}
                       </a>
                     </span>
                   </div>
@@ -263,7 +326,9 @@ const AssetPortfolio = () => {
             </div>
             <div className="d-flex button-header">
               <Button className="button-color w-100">Sell</Button>
-              <Button className="button-color ms-2 w-100" onClick={viewProperties}>View Property</Button>
+              <Button className="button-color ms-2 w-100" onClick={viewProperties}>
+                View Property
+              </Button>
               <Button className="ms-2 button-color w-100" onClick={viewProposals}>
                 View Proposals
               </Button>
@@ -273,10 +338,16 @@ const AssetPortfolio = () => {
         {/* </Row> */}
         <Row>
           <Col xl="2">
-            <PropertiesManagementCard name="Asset Value" score={CurrencyFormat({ value: assetsSummery?.property?.assetValue, prefix: "$" })} />
+            <PropertiesManagementCard
+              name="Asset Value"
+              score={CurrencyFormat({ value: assetsSummery?.property?.assetValue, prefix: '$' })}
+            />
           </Col>
           <Col xl="2">
-            <PropertiesManagementCard name="My Holdings" score={CurrencyFormat({ value: assetsSummery?.assetValue, prefix: "$" })} />
+            <PropertiesManagementCard
+              name="My Holdings"
+              score={CurrencyFormat({ value: assetsSummery?.assetValue, prefix: '$' })}
+            />
           </Col>
           <Col xl={8}>
             <Card>
@@ -298,24 +369,30 @@ const AssetPortfolio = () => {
         <Nav pills className="nav-justified bg-light p-2 portfolioNav">
           <NavItem className="waves-effect waves-light">
             <NavLink
-              className={activeTab === 'token' ? "active" : ""}
-              onClick={() => { toggleTab('token'); }}
+              className={activeTab === 'token' ? 'active' : ''}
+              onClick={() => {
+                toggleTab('token');
+              }}
             >
               <span className="d-sm-block">Token Transactions</span>
             </NavLink>
           </NavItem>
           <NavItem className="waves-effect waves-light">
             <NavLink
-              className={activeTab === 'rent' ? "active" : ""}
-              onClick={() => { toggleTab('rent'); }}
+              className={activeTab === 'rent' ? 'active' : ''}
+              onClick={() => {
+                toggleTab('rent');
+              }}
             >
               <span className="d-sm-block">Rent Transactions</span>
             </NavLink>
           </NavItem>
           <NavItem className="waves-effect waves-light">
             <NavLink
-              className={activeTab === 'property' ? "active" : ""}
-              onClick={() => { toggleTab('property'); }}
+              className={activeTab === 'property' ? 'active' : ''}
+              onClick={() => {
+                toggleTab('property');
+              }}
             >
               <span className="d-sm-block">Property Transactions</span>
             </NavLink>
@@ -339,7 +416,9 @@ const AssetPortfolio = () => {
                     startDate={startDate}
                     endDate={endDate}
                     placeholderText="Date Range Filter"
-                    onChange={(update) => { setDateRange(update); }}
+                    onChange={update => {
+                      setDateRange(update);
+                    }}
                     isClearable="false"
                   />
                 </div>
@@ -359,7 +438,11 @@ const AssetPortfolio = () => {
           <TabPane tabId="rent">
             <div className="investor-background">
               <DatatableTables
-                row={commonData?.rentTxnsList?.isLoading ? 'loading' : commonData?.rentTxnsList?.dataObj?.data}
+                row={
+                  commonData?.rentTxnsList?.isLoading
+                    ? 'loading'
+                    : commonData?.rentTxnsList?.dataObj?.data
+                }
                 column={RentTxnsColumn}
                 paging={false}
                 paginationConfig={paginationConfig}
@@ -368,16 +451,20 @@ const AssetPortfolio = () => {
           </TabPane>
           <TabPane tabId="property">
             <div className="investor-background">
-              <DatatableTables 
-                row={commonData?.reserveTxnsList?.isLoading ? 'loading' : commonData?.reserveTxnsList?.dataObj} 
-                column={PropertyTxnsColumn} 
-                paging={false} 
+              <DatatableTables
+                row={
+                  commonData?.reserveTxnsList?.isLoading
+                    ? 'loading'
+                    : commonData?.reserveTxnsList?.dataObj
+                }
+                column={PropertyTxnsColumn}
+                paging={false}
                 paginationConfig={paginationConfig}
               />
             </div>
           </TabPane>
         </TabContent>
-        <CashflowTxnDetails        
+        <CashflowTxnDetails
           isOpen={cfTxnModalData?.show}
           onClose={setCfTxnModalData}
           data={cfTxnModalData?.data}
