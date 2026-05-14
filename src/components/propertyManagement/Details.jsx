@@ -212,14 +212,25 @@ const Details = ({ data, info, view, heading, tab = 1, status }) => {
       <Formik initialValues={initialValues} enableReinitialize>
         {({ values, setFieldValue }) => (
           <Form>
-            <Row className="mt-5">
+            <Row className="mt-5 details-form-row">
               {Object.keys(fieldInfo).map(item =>
                 item.startsWith('contingencyVar') ? (
                   data[item].name ? (
                     <>
-                      <Col lg={view ? '6' : '5'}>
-                        <div className="position-relative mb-3">
-                          <Label>{data[item].name}</Label>
+                      <Col xs="12" md="6" lg={view ? '6' : '5'}>
+                        <FormGroup className="mb-3 details-field">
+                          <div className="details-label-row">
+                            <Label className="details-label" title={data[item].name}>
+                              {data[item].name}
+                            </Label>
+                            <Switch
+                              disabled={view}
+                              onColor="#00FF00"
+                              onChange={e => handleSwitch(e, item, setFieldValue, values)}
+                              checked={data[item].applicable}
+                              className="details-switch"
+                            />
+                          </div>
                           <Field
                             name={data[item].name}
                             className="form-control"
@@ -228,34 +239,35 @@ const Details = ({ data, info, view, heading, tab = 1, status }) => {
                             onChange={e => handleSwitchText(e.target.value.trim(), item)}
                             disabled={view}
                           />
-                          <Switch
-                            // uncheckedIcon={<Offsymbol />}
-                            // checkedIcon={<OnSymbol />}
-                            disabled={view}
-                            onColor="#00FF00"
-                            onChange={e => handleSwitch(e, item, setFieldValue, values)}
-                            checked={data[item].applicable}
-                            className="position-absolute switch-applicable"
-                          />
-                        </div>
+                        </FormGroup>
                       </Col>
                       {!view && (
-                        <Col lg="1">
-                          <p className="mb-0 height216" />
+                        <Col xs="12" md="6" lg="1" className="d-flex align-items-end mb-3">
                           <Button
-                            className="button-color"
+                            className="button-color w-100"
                             onClick={() => setAddVar({ ...data[item], item })}
                           >
-                            <i className="fas fa-edit mx-2" role="button" />
+                            <i className="fas fa-edit" role="button" />
                           </Button>
                         </Col>
                       )}
                     </>
-                  ) : null 
+                  ) : null
                 ) : fieldInfo[item].switch ? (
-                  <Col lg="6">
-                    <div className="position-relative mb-3">
-                      <Label>{fieldInfo[item].label}</Label>
+                  <Col xs="12" md="6">
+                    <FormGroup className="mb-3 details-field">
+                      <div className="details-label-row">
+                        <Label className="details-label" title={fieldInfo[item].label}>
+                          {fieldInfo[item].label}
+                        </Label>
+                        <Switch
+                          onColor="#00FF00"
+                          disabled={view || (!fieldInfo[item].update && !isDraft)}
+                          onChange={e => handleSwitch(e, item, setFieldValue, values, 'isEnabled')}
+                          checked={values[item]?.isEnabled}
+                          className="details-switch"
+                        />
+                      </div>
                       <Field
                         name={item}
                         className="form-control"
@@ -265,19 +277,14 @@ const Details = ({ data, info, view, heading, tab = 1, status }) => {
                         disabled={view || (!fieldInfo[item].update && !isDraft)}
                         onChange={e => handleChange(e, item, setFieldValue, values)}
                       />
-                      <Switch
-                        onColor="#00FF00"
-                        disabled={view || (!fieldInfo[item].update && !isDraft)}
-                        onChange={e => handleSwitch(e, item, setFieldValue, values, 'isEnabled')}
-                        checked={values[item]?.isEnabled}
-                        className="position-absolute switch-applicable"
-                      />
-                    </div>
+                    </FormGroup>
                   </Col>
                 ) : (
-                  <Col lg="6">
-                    <FormGroup className="mb-3">
-                      <Label className='d-block'>{fieldInfo[item].label}</Label>
+                  <Col xs="12" md="6">
+                    <FormGroup className="mb-3 details-field">
+                      <Label className="d-block details-label" title={fieldInfo[item].label}>
+                        {fieldInfo[item].label}
+                      </Label>
                       {fieldInfo[item].type === 'datetime-local' ? (
                         <DatePicker
                           name={item}

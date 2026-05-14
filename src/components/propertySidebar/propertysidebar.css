@@ -13,13 +13,29 @@
 .property-meta{
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
     margin-bottom: 10px;
     padding-bottom: 5px;
     font-weight: 600;
 }
 
+.property-meta > div:first-child{
+    flex: 0 0 auto;
+    color: #495057;
+}
+
+.property-meta > div:last-child{
+    flex: 1 1 auto;
+    text-align: right;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    min-width: 0;
+}
+
 .property-meta div{
     font-size: 16px;
+    line-height: 1.4;
 }
 .step-list{
     margin-top: 30px;
@@ -33,6 +49,7 @@
     border-bottom: 1px solid lightgray;
     cursor: pointer;
     font-weight: 500;
+    position: relative;
 }
 .step-active{
     color: #C9A84C;
@@ -50,5 +67,7 @@
     border-radius: 50%;
     background-color: #C9A84C;
     position: absolute;
-    right: 40%;
+    right: 32px;
+    top: 50%;
+    transform: translateY(-50%);
 }

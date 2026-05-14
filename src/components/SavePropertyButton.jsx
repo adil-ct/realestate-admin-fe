@@ -89,12 +89,12 @@ const SavePropertyButton = ({ data, showMarket, handleSave, openBuyModal }) => {
             delete newData.financials[it]._id;
           }
 
-          if (it === 'mercuryToken' && newData.financials[it] === propertyDetail?.dataObj?.financials?.mercuryToken) {          
+          if (it === 'mercuryToken' && newData.financials[it] === propertyDetail?.dataObj?.financials?.mercuryToken) {
             delete newData.financials.mercuryToken;
           }
 
-          if (it === 'leveragedCashflowMargin') {
-            newData.financials[it] = it?.[0];
+          if (it === 'leveragedCashflowMargin' && Array.isArray(newData.financials[it])) {
+            newData.financials[it] = newData.financials[it].join(',');
           }
         });
         delete newData[name].propertyValues;

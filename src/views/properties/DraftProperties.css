@@ -81,3 +81,49 @@
 .react-datepicker-wrapper{
   width: 100%;
 }
+
+/* Details panel — label/input/switch layout */
+.details-form-row {
+  row-gap: 4px;
+}
+
+.details-field {
+  min-width: 0;
+}
+
+.details-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+  min-height: 24px;
+}
+
+.details-label {
+  margin: 0;
+  flex: 1 1 auto;
+  min-width: 0;
+  font-weight: 500;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  line-height: 1.3;
+}
+
+.details-switch {
+  flex: 0 0 auto;
+}
+
+.details-field .form-control {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Responsive: stack to single column on small screens so inputs don't crowd */
+@media (max-width: 767.98px) {
+  .details-form-row > [class*="col-"] {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
