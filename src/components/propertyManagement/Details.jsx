@@ -194,13 +194,22 @@ const Details = ({ data, info, view, heading, tab = 1, status }) => {
   };
 
   const formatBytes = (bytes, decimals = 2) => {
-    if (bytes === 0) return '0 Bytes';
+    if (!bytes) return '0 Bytes';
     const k = 1024;
     const dm = decimals < 0 ? 0 : decimals;
     const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
 
-    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    const i = Math.max(0, Math.min(sizes.length - 1, Math.floor(Math.log(bytes) / Math.log(k))));
     return `${parseFloat((bytes / k ** i).toFixed(dm))} ${sizes[i]}`;
+  };
+
+  const formatFileSize = item => {
+    if (item?.sizeInMegaByte != null) {
+      const mb = Number(item.sizeInMegaByte);
+      if (mb < 1) return `${(mb * 1024).toFixed(2)} KB`;
+      return `${mb.toFixed(2)} MB`;
+    }
+    return formatBytes(item?.size);
   };
   
   return (
@@ -340,7 +349,7 @@ const Details = ({ data, info, view, heading, tab = 1, status }) => {
                       </a>
                     </Col>
                     <Col>{rental.key}</Col>
-                    <Col>{formatBytes(rental.sizeInMegaByte || rental.size)}</Col>
+                    <Col>{formatFileSize(rental)}</Col>
                     {!view && (
                       <Col>
                         <div

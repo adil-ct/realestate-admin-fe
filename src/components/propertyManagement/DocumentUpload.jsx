@@ -29,13 +29,22 @@ const DocumentUpload = ({ data, view, rental,status }) => {
     }
   }, [selectedFiles, mainDoc]);
   const formatBytes = (bytes, decimals = 2) => {
-    if (bytes === 0) return '0 Bytes';
+    if (!bytes) return '0 Bytes';
     const k = 1024;
     const dm = decimals < 0 ? 0 : decimals;
     const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
 
-    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    const i = Math.max(0, Math.min(sizes.length - 1, Math.floor(Math.log(bytes) / Math.log(k))));
     return `${parseFloat((bytes / k ** i).toFixed(dm))} ${sizes[i]}`;
+  };
+
+  const formatFileSize = item => {
+    if (item?.sizeInMegaByte != null) {
+      const mb = Number(item.sizeInMegaByte);
+      if (mb < 1) return `${(mb * 1024).toFixed(2)} KB`;
+      return `${mb.toFixed(2)} MB`;
+    }
+    return formatBytes(item?.size);
   };
   const handleAcceptedFiles = async (files, type) => {
     if (!files.length) return;
@@ -132,7 +141,7 @@ const DocumentUpload = ({ data, view, rental,status }) => {
                 <Col lg={4} className="text-break">
                   {item.key}
                 </Col>
-                <Col>{formatBytes(item.sizeInMegaByte || item.size)}</Col>
+                <Col>{formatFileSize(item)}</Col>
                 {!view && isDraft && (
                   <Col>
                     <div className="cross" onClick={() => handleDelete(0, 'main')}>
@@ -183,7 +192,7 @@ const DocumentUpload = ({ data, view, rental,status }) => {
             <Col lg={4} className="text-break">
               {item.key}
             </Col>
-            <Col>{formatBytes(item.sizeInMegaByte || item.size)}</Col>
+            <Col>{formatFileSize(item)}</Col>
             {!view && (
               <Col>
                 <div className="cross" onClick={() => handleDelete(index)}>
@@ -212,7 +221,7 @@ const DocumentUpload = ({ data, view, rental,status }) => {
               <Col lg={4} className="text-break">
                 {item.key}
               </Col>
-              <Col>{formatBytes(item.sizeInMegaByte || item.size)}</Col>
+              <Col>{formatFileSize(item)}</Col>
             </Row>
           ))}
       </div>
