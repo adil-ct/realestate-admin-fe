@@ -193,6 +193,7 @@ const SavePropertyButton = ({ data, showMarket, handleSave, openBuyModal }) => {
     delete newData.mogulEquityBuyStatus;
     delete newData.status;
     delete newData.crowdsale;
+    delete newData.rentalDocuments;
     delete newData?.otherInfo?.estateId;
     delete newData.crowdSale?.pricePerToken;
     delete newData.crowdSale?.tokensForSale;
