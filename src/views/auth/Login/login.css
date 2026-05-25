@@ -1,4 +1,4 @@
-/* Occurrence — auth screens */
+/* Bricklane — auth screens */
 
 .login__hero {
   margin-top: 0 !important;
@@ -7,14 +7,14 @@
   align-items: center;
   justify-content: center;
   padding: 48px 16px;
-  background-color: #F8F7F4;
+  background-color: #f8f7f4;
 }
 
 .login__hero .card {
   border-radius: 16px !important;
-  border: 1px solid #E2E8F0 !important;
+  border: 1px solid #e2e8f0 !important;
   box-shadow: 0 8px 28px rgba(26, 43, 74, 0.08) !important;
-  background: #FFFFFF;
+  background: #ffffff;
 }
 
 .auth-brand {
@@ -28,23 +28,25 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-weight: 700;
-  color: #6B7280;
+  color: #6b7280;
   margin-bottom: 12px;
 }
 
 .login__header {
   font-size: 20px;
   font-family: 'PP Fragment-Serif', 'Cormorant Garamond', Georgia, serif;
-  color: #1A1A2E;
+  color: #1a1a2e;
   font-weight: 700;
 }
 
-.faq__box { margin: 0 10px; }
+.faq__box {
+  margin: 0 10px;
+}
 
 .form-control:focus {
-  color: #1A1A2E;
+  color: #1a1a2e;
   background-color: #fff;
-  border-color: #1A2B4A;
+  border-color: #1a2b4a;
   outline: 0;
   box-shadow: none;
 }
@@ -59,15 +61,19 @@
 }
 
 .Reset__header {
-  color: #1A1A2E;
+  color: #1a1a2e;
   font-weight: 700;
   font-family: 'PP Fragment-Serif', 'Cormorant Garamond', Georgia, serif;
   letter-spacing: -0.01em;
 }
-.Reset_Para { margin: 10px; color: #6B7280; font-size: 13px; }
+.Reset_Para {
+  margin: 10px;
+  color: #6b7280;
+  font-size: 13px;
+}
 
 .color-green {
-  color: #1A2B4A;
+  color: #1a2b4a;
   font-weight: 600;
 }
 
@@ -79,7 +85,7 @@
   position: absolute;
   right: 16%;
   top: 13px;
-  color: #6B7280;
+  color: #6b7280;
   cursor: pointer;
 }
 
@@ -88,35 +94,39 @@
   text-align: center;
   padding: 10px;
   margin-right: 12px;
-  border: 1px solid #E2E8F0;
+  border: 1px solid #e2e8f0;
   border-radius: 10px;
   height: 56px !important;
   font-size: 18px;
   font-weight: 600;
-  color: #1A1A2E;
+  color: #1a1a2e;
   background: #ffffff;
 }
 
 .otpscreen input:focus {
-  border-color: #1A2B4A;
+  border-color: #1a2b4a;
   outline: none;
   box-shadow: none;
 }
 
-.otp-card { min-height: 400px; }
-.container-otp { max-width: 700px; }
+.otp-card {
+  min-height: 400px;
+}
+.container-otp {
+  max-width: 700px;
+}
 
 .letters-space {
   letter-spacing: 0.01em;
   font-size: 14px;
   font-weight: 600;
-  color: #1A1A2E;
+  color: #1a1a2e;
 }
 
 .spinner-logo {
   height: 24px;
   width: 24px;
-  color: #C9A84C;
+  color: #c9a84c;
   margin: 0 auto 12px;
   display: block;
 }
@@ -124,7 +134,7 @@
 .spinner-logo-otp {
   height: 24px;
   width: 24px;
-  color: #C9A84C;
+  color: #c9a84c;
   margin: 0 auto 12px;
   display: block;
 }
@@ -146,7 +156,7 @@
 }
 
 .forget_password .forgot-link {
-  color: #1A2B4A !important;
+  color: #1a2b4a !important;
   font-size: 12px;
   font-weight: 500;
   cursor: pointer;
@@ -155,5 +165,5 @@
 
 .forget_password .forgot-link:hover {
   text-decoration: underline;
-  color: #2C4270 !important;
+  color: #2c4270 !important;
 }

@@ -58,8 +58,8 @@ const DepositQR = ({ isOpen, onClose, backBtn }) => {
           <div className="scan2fabody">
             <h5>SCAN QR CODE</h5>
             <h6>
-              Scan the QR code or copy the wallet address to transfer USDC(Polygon) to your Occurrence
-              wallet
+              Scan the QR code or copy the wallet address to transfer USDC(Polygon) to your
+              Bricklane wallet
             </h6>
             <img alt="" className="scanimg" src={walletAddress?.data?.qr} />
             <h6>OR</h6>

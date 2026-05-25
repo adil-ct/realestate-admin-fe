@@ -1,4 +1,4 @@
-/* Occurrence Admin — top app bar (dark navy) */
+/* Bricklane Admin — top app bar (dark navy) */
 
 #page-topbar {
   position: fixed;
@@ -7,10 +7,10 @@
   height: 72px;
   z-index: 40;
   background: #ffffff;
-  color: #1A1A2E;
+  color: #1a1a2e;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #E2E8F0;
+  border-bottom: 1px solid #e2e8f0;
   transition: left 0.3s ease;
 }
 
@@ -22,11 +22,11 @@
   justify-content: space-between;
   padding: 0 28px;
   background: transparent;
-  color: #1A1A2E;
+  color: #1a1a2e;
 }
 
 .navbar-header .header-item {
-  color: #1A1A2E;
+  color: #1a1a2e;
   background: transparent;
   border: none;
   height: 40px;
@@ -35,15 +35,19 @@
   justify-content: center;
   padding: 0 12px;
   border-radius: 8px;
-  transition: background 0.15s ease, color 0.15s ease;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
 }
 
 .navbar-header .header-item:hover {
   background: rgba(26, 43, 74, 0.06);
-  color: #1A2B4A;
+  color: #1a2b4a;
 }
 
-.navbar-header button.header-item i { color: #1A1A2E; }
+.navbar-header button.header-item i {
+  color: #1a1a2e;
+}
 
 #page-header-user-dropdown,
 #page-header-user-dropdown:hover,
@@ -51,7 +55,7 @@
 #page-header-user-dropdown:active {
   background: transparent !important;
   border: none !important;
-  color: #1A1A2E !important;
+  color: #1a1a2e !important;
   box-shadow: none !important;
 }
 
@@ -60,13 +64,13 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #C9A84C 0%, #A8872F 100%);
+  background: linear-gradient(135deg, #c9a84c 0%, #a8872f 100%);
   border: 1px solid rgba(255, 255, 255, 0.15);
   object-fit: cover;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #0B1F4E;
+  color: #0b1f4e;
   font-family: 'PP Fragment-Serif', 'Cormorant Garamond', Georgia, serif;
   font-weight: 700;
   font-size: 14px;
@@ -81,10 +85,12 @@
   font-size: 13px;
 }
 
-.navbar-header .uil-angle-down { color: #1A1A2E !important; }
+.navbar-header .uil-angle-down {
+  color: #1a1a2e !important;
+}
 
 .navbar-header .profile-username {
-  color: #1A1A2E !important;
+  color: #1a1a2e !important;
   font-size: 13px;
   font-weight: 600;
   margin-left: 10px;
@@ -93,16 +99,16 @@
 
 /* The profile dropdown opens against the dark bar — keep the menu light */
 .dropdown-menu-end {
-  border: 1px solid #E2E8F0;
+  border: 1px solid #e2e8f0;
   border-radius: 12px;
   box-shadow: 0 12px 32px rgba(26, 43, 74, 0.12);
   padding: 6px;
   min-width: 200px;
-  background: #FFFFFF;
+  background: #ffffff;
 }
 
 .dropdown-menu-end .dropdown-item {
-  color: #1A1A2E;
+  color: #1a1a2e;
   font-size: 13px;
   border-radius: 8px;
   padding: 8px 10px;
@@ -110,5 +116,5 @@
 
 .dropdown-menu-end .dropdown-item:hover {
   background: rgba(26, 43, 74, 0.04);
-  color: #1A2B4A;
+  color: #1a2b4a;
 }

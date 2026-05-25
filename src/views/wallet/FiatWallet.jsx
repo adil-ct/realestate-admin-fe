@@ -11,7 +11,7 @@ import {
   GetUserProfile,
   getWalletAddress,
   getMoonpayUrl,
-  commonSaga
+  commonSaga,
 } from 'store/actions';
 
 import DepositViaStripe from 'components/UI/Model/authenticationmodals/depositViaStripe';
@@ -45,7 +45,7 @@ const WalletCard = () => {
   const [count, setCount] = useState('');
 
   const dispatch = useDispatch();
-  const { commonData } = useSelector((stateObj) => ({
+  const { commonData } = useSelector(stateObj => ({
     commonData: stateObj.common,
   }));
   const { transactions, loading, walletBalance, isLoading } = useSelector(state => state.account);
@@ -54,15 +54,15 @@ const WalletCard = () => {
     setWithdraw(false);
   };
 
-  const loadScripts = (url) => {
+  const loadScripts = url => {
     const script = document.createElement('script');
     script.src = url;
     document.getElementsByTagName('head')[0].appendChild(script);
-  }
+  };
 
   const depositBankModal = () => {
     switch (selectedOption) {
-      case "usdc":
+      case 'usdc':
         dispatch(
           getWalletAddress({
             handleSuccess: () => {
@@ -72,7 +72,7 @@ const WalletCard = () => {
           }),
         );
         break;
-      case "card":
+      case 'card':
         dispatch(
           getMoonpayUrl({
             handleSuccess: () => {
@@ -83,11 +83,19 @@ const WalletCard = () => {
           }),
         );
         break;
-      case "ach":
-        dispatch(commonSaga({ endPoint: "/payment/stripe-onramp-sessions", type: "get", stateObj: "stripeState", baseEP: "PAYMENT" }));
+      case 'ach':
+        dispatch(
+          commonSaga({
+            endPoint: '/payment/stripe-onramp-sessions',
+            type: 'get',
+            stateObj: 'stripeState',
+            baseEP: 'PAYMENT',
+          }),
+        );
         break;
 
-      default: return false;
+      default:
+        return false;
     }
   };
   const depositConfirmModal = () => {
@@ -103,7 +111,7 @@ const WalletCard = () => {
       destination: item?.destination,
       source: item?.source,
       transactionHash: item?.transactionHash,
-      fees: item?.fees?.amount ? item?.fees?.amount : "- -",
+      fees: item?.fees?.amount ? item?.fees?.amount : '- -',
       status: item.status ? item.status : item?.transferType,
       description:
         item.transactionType === 'Deposit'
@@ -114,7 +122,7 @@ const WalletCard = () => {
             ? item.source
             : item.propertyName,
 
-      to: item.transactionType === 'Withdrawal' ? item?.destination : 'Occurrence Wallet',
+      to: item.transactionType === 'Withdrawal' ? item?.destination : 'Bricklane Wallet',
     }));
     return sdetail;
   };
@@ -122,8 +130,8 @@ const WalletCard = () => {
   useEffect(() => {
     dispatch(getWalletBalance());
     dispatch(GetUserProfile());
-    loadScripts("https://js.stripe.com/v3/");
-    loadScripts("https://crypto-js.stripe.com/crypto-onramp-outer.js");
+    loadScripts('https://js.stripe.com/v3/');
+    loadScripts('https://crypto-js.stripe.com/crypto-onramp-outer.js');
   }, []);
 
   useEffect(() => {
@@ -148,7 +156,6 @@ const WalletCard = () => {
       ? transactions.data?.filter(transaction => transaction.transactionType === 'marketplace')
       : [];
 
-
   const updateCurrentCountPage = page => {
     setCount(page);
   };
@@ -156,7 +163,7 @@ const WalletCard = () => {
   /* Pagination Config */
   const onPageChange = page => {
     setCurrentPage(page);
-    setFilter(prev => ({ ...prev, page}));
+    setFilter(prev => ({ ...prev, page }));
   };
 
   useEffect(() => {
@@ -171,7 +178,7 @@ const WalletCard = () => {
       sdetail = getDetails(transfersData);
       setUserData(sdetail);
     }
-    
+
     const paginationConfigTemp = {
       currentPage,
       pageCount: Math.ceil(transactions?.totalCount / 10),
@@ -181,7 +188,6 @@ const WalletCard = () => {
       updateCurrentCountPage,
     };
     setPaginationConfig(paginationConfigTemp);
-
   }, [transactions, activeTabJustify2]);
 
   function toggleCustomJustified2(tab) {
@@ -208,17 +214,18 @@ const WalletCard = () => {
 
   const backBtnHandler = () => {
     switch (selectedOption) {
-      case "usdc":
+      case 'usdc':
         setDepositQR(false);
         break;
-      case "card":
+      case 'card':
         setDepositBank(false);
         break;
-      case "ach":
+      case 'ach':
         setDepositStripe(false);
         break;
 
-      default: return false;
+      default:
+        return false;
     }
     setDeposit(true);
   };
@@ -235,7 +242,7 @@ const WalletCard = () => {
     } else {
       dispatch(getListOfTransactions({ type: 'transfers', currentPage }));
     }
-  }
+  };
 
   useEffect(() => {
     getList();
@@ -257,7 +264,7 @@ const WalletCard = () => {
           className="wallet-card d-flex justify-content-between border-wallet p-3"
         >
           <div />
-          <div className='flexCenter'>
+          <div className="flexCenter">
             <div className="balanceBox">
               <div className="euro">
                 <img src={fiatwallet} alt="Euro" />
@@ -363,12 +370,14 @@ const WalletCard = () => {
             />
           )}
           {<DepositQRModal isOpen={depositQR} onClose={setDepositQR} backBtn={backBtnHandler} />}
-          {<DepositViaStripe
-            isOpen={depositStripe}
-            onClose={setDepositStripe}
-            backBtn={backBtnHandler}
-            clientSecret={commonData?.stripeState?.dataObj?.client_secret}
-          />}
+          {
+            <DepositViaStripe
+              isOpen={depositStripe}
+              onClose={setDepositStripe}
+              backBtn={backBtnHandler}
+              clientSecret={commonData?.stripeState?.dataObj?.client_secret}
+            />
+          }
         </Col>
         <Container fluid>
           <div className="table-background">
@@ -417,7 +426,7 @@ const WalletCard = () => {
                   customise
                   row={loading ? 'loading' : usersData}
                   paginationConfig={paginationConfig}
-                  paging={false} 
+                  paging={false}
                 />
               </TabPane>
               <TabPane tabId="26">
@@ -426,7 +435,7 @@ const WalletCard = () => {
                   column={withdrawColumn}
                   row={loading ? 'loading' : usersData}
                   paginationConfig={paginationConfig}
-                  paging={false} 
+                  paging={false}
                 />
               </TabPane>
               <TabPane tabId="27">
@@ -434,7 +443,7 @@ const WalletCard = () => {
                   column={transferColumn}
                   row={loading ? 'loading' : usersData}
                   paginationConfig={paginationConfig}
-                  paging={false} 
+                  paging={false}
                 />
               </TabPane>
             </TabContent>

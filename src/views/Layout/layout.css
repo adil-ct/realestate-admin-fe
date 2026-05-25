@@ -1,17 +1,19 @@
 /* ============================================================
-   Occurrence Admin — sidebar + page chrome
+   Bricklane Admin — sidebar + page chrome
    Dark navy sidebar with white nav items, gold accent on active.
    ============================================================ */
 
 nav {
   font-size: 13px;
-  background: #111E35;
+  background: #111e35;
   color: rgba(255, 255, 255, 0.85);
   height: 100vh;
   width: 258px;
   z-index: 50;
   position: fixed;
-  transition: width 0.3s ease, background 0.3s ease;
+  transition:
+    width 0.3s ease,
+    background 0.3s ease;
   top: 0;
   left: 0;
   border-right: 1px solid rgba(255, 255, 255, 0.04);
@@ -21,15 +23,19 @@ nav {
 }
 
 /* slim scrollbar for the dark surface */
-nav::-webkit-scrollbar { width: 6px; }
+nav::-webkit-scrollbar {
+  width: 6px;
+}
 nav::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.12);
   border-radius: 999px;
 }
-nav::-webkit-scrollbar-track { background: transparent; }
+nav::-webkit-scrollbar-track {
+  background: transparent;
+}
 
 .side_bar_top {
-  background: #111E35;
+  background: #111e35;
   height: 72px;
   display: flex;
   align-items: center;
@@ -90,7 +96,9 @@ nav li > a {
   letter-spacing: 0.01em;
   text-decoration: none !important;
   border-radius: 10px;
-  transition: color 0.15s ease, background 0.15s ease;
+  transition:
+    color 0.15s ease,
+    background 0.15s ease;
 }
 
 nav li a i {
@@ -117,7 +125,7 @@ nav li .color-rgb {
 }
 
 .activeitem > a {
-  background: rgba(201, 168, 76, 0.10) !important;
+  background: rgba(201, 168, 76, 0.1) !important;
   position: relative;
 }
 
@@ -129,12 +137,12 @@ nav li .color-rgb {
   transform: translateY(-50%);
   width: 3px;
   height: 22px;
-  background: #C9A84C;
+  background: #c9a84c;
   border-radius: 0 3px 3px 0;
 }
 
 .activeitem > a i {
-  color: #C9A84C !important;
+  color: #c9a84c !important;
 }
 
 /* default text override — old class still referenced in JSX */
@@ -170,8 +178,12 @@ nav li .color-rgb {
 }
 
 /* Topbar offset */
-body[data-layout="horizontal"] #page-topbar { left: 258px; }
-.nav_show body[data-layout="horizontal"] #page-topbar { left: 90px; }
+body[data-layout='horizontal'] #page-topbar {
+  left: 258px;
+}
+.nav_show body[data-layout='horizontal'] #page-topbar {
+  left: 90px;
+}
 
 /* Page content offset against the sidebar */
 .grow-menu {

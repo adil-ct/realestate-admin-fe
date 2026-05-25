@@ -4,7 +4,7 @@
 // custom-variables
 //
 
-// === Occurrence Design System Tokens ===
+// === Bricklane Design System Tokens ===
 // Brand — Navy
 $navy-primary: #1A2B4A; // buttons, headings, primary actions
 $navy-deep:    #0B1F4E; // logo wordmark, deepest emphasis
@@ -153,7 +153,7 @@ $grays: (
 // scss-docs-end gray-colors-map
 // fusv-enable
 // scss-docs-start color-variables
-// Repurposed to map onto the Occurrence palette so any leftover bootstrap-flavoured
+// Repurposed to map onto the Bricklane palette so any leftover bootstrap-flavoured
 // references still land on the new design system instead of legacy green/blue.
 $blue:    $navy-primary;
 $indigo:  $navy-deep;
@@ -651,7 +651,7 @@ $border-color:                $gray-200;
 // scss-docs-end border-variables
 
 // scss-docs-start border-radius-variables
-// Occurrence radii — inputs/buttons ~10px, cards 16px, pills 20px
+// Bricklane radii — inputs/buttons ~10px, cards 16px, pills 20px
 $border-radius:               .625rem;  // 10px
 $border-radius-sm:            .5rem;    // 8px
 $border-radius-lg:            1rem;     // 16px (cards / modals)

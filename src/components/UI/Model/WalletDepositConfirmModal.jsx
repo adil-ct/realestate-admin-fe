@@ -16,7 +16,6 @@ const WalletDepositConfirmModal = ({
   isOpen,
   close,
 }) => {
-
   const { linkedCards } = useSelector(state => state.account);
   const [ipAddress, setIpAddress] = useState('- -');
 
@@ -58,7 +57,7 @@ const WalletDepositConfirmModal = ({
         </div>
         <div className="mt-3 mb-3">
           <p className="authorization-space">
-            I authorize Circle Internet Financial, on behalf of Occurrence Technologies Inc. to
+            I authorize Circle Internet Financial, on behalf of Bricklane Technologies Inc. to
             electronically debit my account(and,if necessary. electronically credit my account) at
             the financial institution selected by me in the previous step:
           </p>
@@ -67,15 +66,17 @@ const WalletDepositConfirmModal = ({
           <>
             <div className="deposit-fees authorization-space">
               <p>Account Holder Name</p>
-              <p><strong>{walletDespoitDetails?.accountHolder || 'N/A'}</strong></p>
+              <p>
+                <strong>{walletDespoitDetails?.accountHolder || 'N/A'}</strong>
+              </p>
             </div>
             <div className="deposit-fees authorization-space">
               <p>Routing Number</p>
-              <p>{walletDespoitDetails?.routingNumber || "N/A"}</p>
+              <p>{walletDespoitDetails?.routingNumber || 'N/A'}</p>
             </div>
             <div className="deposit-fees authorization-space">
               <p>Account Number</p>
-              <p>{walletDespoitDetails?.accountNumber || "N/A"}</p>
+              <p>{walletDespoitDetails?.accountNumber || 'N/A'}</p>
             </div>
           </>
         )}

@@ -3,8 +3,8 @@ import { Card, CardBody, Col, Container, Row } from 'reactstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Tooltip from "@mui/material/Tooltip";
-import { useNavigate } from "react-router-dom";
+import Tooltip from '@mui/material/Tooltip';
+import { useNavigate } from 'react-router-dom';
 
 import { RefereeDetailsColumn } from 'constants/columnUtility';
 import Breadcrumb from 'components/UI/Common/Breadcrumb';
@@ -16,7 +16,6 @@ import { Copy } from 'assets/images';
 
 import './investorRelation.css';
 
-
 const InvestorRelationDetail = () => {
   const dispatch = useDispatch();
 
@@ -26,18 +25,18 @@ const InvestorRelationDetail = () => {
   const [breadcrum, setBreadcrum] = useState([]);
   const [filter, setFilter] = useState({
     startIndex: 1,
-    itemsPerPage: 10,  
+    itemsPerPage: 10,
   });
   const [currentPage, setCurrentPage] = useState(1);
   const [count, setCount] = useState('');
   const [paginationConfig, setPaginationConfig] = useState({});
   const [refreeDetails, setRefreeDetails] = useState({});
-  
+
   const { referralId } = useParams();
   const navigate = useNavigate();
 
   const { copy: referralIDCopy, tooltipText: referralIDText } = useCopyToClipboard();
-  const { copy: referralLinkCopy, tooltipText: referralLinkText } = useCopyToClipboard();  
+  const { copy: referralLinkCopy, tooltipText: referralLinkText } = useCopyToClipboard();
 
   const onPageChange = page => {
     setCurrentPage(page);
@@ -47,22 +46,20 @@ const InvestorRelationDetail = () => {
   const updateCurrentCountPage = page => {
     setCount(page);
   };
- 
-  const handleView = item =>
-    navigate(`/referrals-transactions/${item?.refereeId}/${referralId}`); 
+
+  const handleView = item => navigate(`/referrals-transactions/${item?.refereeId}/${referralId}`);
 
   useEffect(() => {
-
     if (investorRelationDetail?.result.length) {
-    const refreeDetail =  investorRelationDetail?.result?.map(item => ({
-      name: item?.name || '--',
-      email: item?.email || '--',
-      mobileNumber: item?.mobileNumber || '--',
-      kycStatus: item?.kycStatus || '--',
-      amountSettled: `$ ${item?.amountSettled?.toFixed(2) || '0.00'}` || '--',
-      action: <ActionCell view={handleView} id={item} />
-    }));
-      
+      const refreeDetail = investorRelationDetail?.result?.map(item => ({
+        name: item?.name || '--',
+        email: item?.email || '--',
+        mobileNumber: item?.mobileNumber || '--',
+        kycStatus: item?.kycStatus || '--',
+        amountSettled: `$ ${item?.amountSettled?.toFixed(2) || '0.00'}` || '--',
+        action: <ActionCell view={handleView} id={item} />,
+      }));
+
       const paginationConfigTemp = {
         currentPage,
         pageCount: Math.ceil(investorRelationDetail?.totalCount / filter?.itemsPerPage),
@@ -73,18 +70,24 @@ const InvestorRelationDetail = () => {
       };
       setPaginationConfig(paginationConfigTemp);
       setRefreeDetails(refreeDetail);
-    }else setRefreeDetails([]); 
+    } else setRefreeDetails([]);
   }, [investorRelationDetail]);
 
   useEffect(() => {
     const query = Object.keys(filter)
       .filter(item => filter[item] !== undefined && filter[item] !== '' && filter[item] !== 'all')
       .map(item => `${item}=${filter[item]}`)
-      .join('&');    
-      dispatch(getEarlyInvestor({ list: `user/refereeList`, field: 'investorRelationDetail', query:`userId=${referralId}&${query}` , baseEP: 'USER'}));  
+      .join('&');
+    dispatch(
+      getEarlyInvestor({
+        list: `user/refereeList`,
+        field: 'investorRelationDetail',
+        query: `userId=${referralId}&${query}`,
+        baseEP: 'USER',
+      }),
+    );
   }, [filter]);
 
-  
   useEffect(() => {
     setBreadcrum([
       {
@@ -102,14 +105,14 @@ const InvestorRelationDetail = () => {
       }),
     );
   }, []);
-  
-  
-const userFirstName = userDetailsObj?.dataObj?.user?.firstName || '-';
-const userLastName = userDetailsObj?.dataObj?.user?.lastName || '-';
 
-const dashboardTitle = userDetailsObj && userDetailsObj?.isLoading
-  ? 'Loading IR Dashboard...'
-  : `${userFirstName} ${userLastName}'s IR Dashboard`;
+  const userFirstName = userDetailsObj?.dataObj?.user?.firstName || '-';
+  const userLastName = userDetailsObj?.dataObj?.user?.lastName || '-';
+
+  const dashboardTitle =
+    userDetailsObj && userDetailsObj?.isLoading
+      ? 'Loading IR Dashboard...'
+      : `${userFirstName} ${userLastName}'s IR Dashboard`;
 
   return (
     <div className="page-content">
@@ -121,13 +124,11 @@ const dashboardTitle = userDetailsObj && userDetailsObj?.isLoading
       <Container fluid>
         <Row>
           <Card>
-            <h4 className="mx-4 mt-3">
-             {dashboardTitle}
-            </h4>
+            <h4 className="mx-4 mt-3">{dashboardTitle}</h4>
             <div className="flexCenter dashboard_body">
               <CardBody className="d-flex flex-wrap">
                 <div className="flex-20">
-                  <div className="dashboard_head">Occurrence IR Code</div>
+                  <div className="dashboard_head">Bricklane IR Code</div>
                   {loading ? (
                     <div className="skeleton-loader"></div>
                   ) : (
@@ -140,7 +141,9 @@ const dashboardTitle = userDetailsObj && userDetailsObj?.isLoading
                         <img
                           src={Copy}
                           onClick={() =>
-                            referralIDCopy(investorRelationDetail?.referralCodeDetails?.referralCode)
+                            referralIDCopy(
+                              investorRelationDetail?.referralCodeDetails?.referralCode,
+                            )
                           }
                           alt="copy"
                         />
@@ -150,7 +153,7 @@ const dashboardTitle = userDetailsObj && userDetailsObj?.isLoading
                   )}
                 </div>
                 <div className="flex-20">
-                  <div className="dashboard_head">Occurrence IR Link</div>
+                  <div className="dashboard_head">Bricklane IR Link</div>
                   {loading ? (
                     <div className="skeleton-loader"></div>
                   ) : (
@@ -160,12 +163,18 @@ const dashboardTitle = userDetailsObj && userDetailsObj?.isLoading
                         enterTouchDelay={0}
                         title={referralLinkText === 'Copy' ? '' : referralLinkText}
                       >
-                        <img src={Copy} onClick={() => referralLinkCopy(userDetailsObj?.dataObj?.user?.referralSharingLink )} alt='copy'/>
+                        <img
+                          src={Copy}
+                          onClick={() =>
+                            referralLinkCopy(userDetailsObj?.dataObj?.user?.referralSharingLink)
+                          }
+                          alt="copy"
+                        />
                       </Tooltip>
                       <div>
                         {userDetailsObj?.dataObj?.user?.referralSharingLink?.length > 15
-                          ? `${userDetailsObj?.dataObj?.user?.referralSharingLink ?.slice(0, 15)}.....${userDetailsObj?.dataObj?.user?.referralSharingLink ?.slice(-4)}`
-                          : userDetailsObj?.dataObj?.user?.referralSharingLink }
+                          ? `${userDetailsObj?.dataObj?.user?.referralSharingLink?.slice(0, 15)}.....${userDetailsObj?.dataObj?.user?.referralSharingLink?.slice(-4)}`
+                          : userDetailsObj?.dataObj?.user?.referralSharingLink}
                       </div>
                     </div>
                   )}
